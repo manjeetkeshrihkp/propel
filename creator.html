@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cenin Creator Crew | Join the Culture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #030303;
+      --bg-card: rgba(18, 18, 22, 0.45);
+      --bg-card-hover: rgba(26, 26, 32, 0.65);
+      --text-main: #ffffff;
+      --text-muted: #8e8e93;
+      --neon-green: #ccff00;
+      --neon-purple: #b026ff;
+      --neon-blue: #00f0ff;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --glass-blur: blur(25px);
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html, body {
+      background-color: var(--bg-dark); 
+      color: var(--text-main); 
+      font-family: 'Inter', sans-serif; 
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      
+      /* Silicon Valley tech grid background */
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: center top;
+    }
+
+    /* Ambient background tech glows */
+    .bg-glow-1 {
+      position: fixed; top: -10%; left: -10%; width: 55vw; height: 55vw;
+      background: radial-gradient(circle, rgba(204, 255, 0, 0.035), transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+    .bg-glow-2 {
+      position: fixed; bottom: -10%; right: -10%; width: 55vw; height: 55vw;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.025), transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+
+    h1, h2, h3, h4, .heading-font { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.5px; }
+    .sub-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 500; }
+
+    /* =========================================
+       HEADER / NAVIGATION
+     ========================================= */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000; background: rgba(3, 3, 3, 0.75); backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--border-color);
+    }
+    
+    .back-btn {
+      color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 8px;
+      font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+      transition: var(--transition); font-family: 'Space Grotesk', sans-serif;
+      padding: 0.5rem 1.2rem; border-radius: 30px; border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .back-btn:hover { 
+      color: var(--neon-green); 
+      border-color: rgba(204, 255, 0, 0.3);
+      background: rgba(204, 255, 0, 0.05);
+      transform: translateX(-3px); 
+    }
+    .back-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    .logo { 
+      font-size: 1.3rem; font-weight: 700; 
+      letter-spacing: 1.5px; text-transform: uppercase; display: flex; gap: 5px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .logo-cenin { color: var(--text-main); }
+    .logo-creator {
+      background: linear-gradient(270deg, var(--neon-green), var(--neon-blue), var(--neon-purple), var(--neon-green));
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: hypeGlow 6s ease infinite;
+    }
+
+    @keyframes hypeGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* =========================================
+       HERO SECTION (Two-Column Layout)
+     ========================================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      text-align: left;
+      padding: 12rem 6% 6rem 6%;
+      max-width: 1250px;
+      margin: 0 auto;
+      position: relative;
+      overflow: visible;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 10;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 30px; 
+      background: rgba(204, 255, 0, 0.06); color: var(--neon-green);
+      font-weight: 600; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 2.2rem;
+      border: 1px solid rgba(204, 255, 0, 0.2); text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .hero-badge span {
+      width: 6px; height: 6px; background-color: var(--neon-green); border-radius: 50%;
+      animation: pulse-green 2s infinite; display: inline-block;
+    }
+    @keyframes pulse-green {
+      0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(204, 255, 0, 0.6); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(204, 255, 0, 0); }
+      100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(204, 255, 0, 0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.2vw, 4.4rem); font-weight: 700; line-height: 1.1;
+      text-transform: uppercase; margin-bottom: 1.8rem; letter-spacing: -1.5px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .hero p {
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem); color: var(--text-muted); font-weight: 400; 
+      max-width: 650px; margin-bottom: 3.2rem; line-height: 1.7;
+    }
+
+    .join-btn {
+      background: var(--neon-green); color: #000; border: none;
+      padding: 1.2rem 3.2rem; font-size: 1rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; cursor: pointer;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+      animation: breathe-glow 3s infinite ease-in-out;
+    }
+    .join-btn:hover {
+      transform: scale(1.02) translateY(-2px);
+      background: #d8ff33;
+    }
+    .join-btn:active {
+      transform: scale(0.98) translateY(-1px);
+    }
+    
+    @keyframes breathe-glow {
+      0% { box-shadow: 0 0 15px rgba(204, 255, 0, 0.25); }
+      50% { box-shadow: 0 0 35px rgba(204, 255, 0, 0.55), 0 0 10px rgba(0, 240, 255, 0.3); }
+      100% { box-shadow: 0 0 15px rgba(204, 255, 0, 0.25); }
+    }
+
+    /* Word cycler styling */
+    .word-cycler-container {
+      display: inline-block;
+      position: relative;
+      height: 1.45em;
+      vertical-align: -0.2em;
+      overflow: hidden;
+      width: 155px;
+      margin-left: 6px;
+      border-bottom: 2.5px solid var(--neon-green);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .word-cycler-text {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--neon-green);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.05em;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .word-cycler-text.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .word-cycler-text.prev {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    /* Canvas styling */
+    .spark-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Scroll reveal transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Visual Column Styles (Pure CSS Wallet Console Dashboard) */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    .saas-dashboard-panel {
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      background: rgba(10, 10, 12, 0.85);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      display: flex;
+      flex-direction: column;
+      padding: 0 !important;
+    }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .panel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .panel-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      margin-left: 6px;
+      font-weight: 700;
+    }
+    .panel-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      justify-content: space-between;
+    }
+    .panel-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .panel-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .panel-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -1px;
+    }
+    .panel-status-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--neon-green);
+      background: rgba(204, 255, 0, 0.08);
+      padding: 4px 10px;
+      border-radius: 30px;
+      border: 1px solid rgba(204, 255, 0, 0.2);
+      margin-top: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .panel-chart-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .panel-chart-svg {
+      width: 100%;
+      height: 100px;
+      overflow: visible;
+    }
+    .panel-footer-metrics {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.2rem;
+      text-align: left;
+    }
+    .pf-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+    }
+    .pf-lbl {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .pf-val {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    /* Floating Cards styling */
+    .floating-card {
+      position: absolute;
+      background: rgba(10, 10, 12, 0.85);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 0.9rem 1.3rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      z-index: 20;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .fc-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .fc-1 {
+      top: 8%;
+      left: -15%;
+      animation: float-slow 4s infinite ease-in-out;
+      border-color: rgba(204, 255, 0, 0.35);
+    }
+    .fc-1 .fc-icon {
+      background: rgba(204, 255, 0, 0.15);
+      color: var(--neon-green);
+    }
+    .fc-2 {
+      bottom: 10%;
+      right: -8%;
+      animation: float-slow-reverse 4.5s infinite ease-in-out;
+      border-color: rgba(0, 240, 255, 0.35);
+    }
+    .fc-2 .fc-icon {
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--neon-blue);
+    }
+    .fc-3 {
+      bottom: 45%;
+      left: -20%;
+      animation: float-slow 5s infinite ease-in-out;
+      border-color: rgba(176, 38, 255, 0.35);
+    }
+    .fc-3 .fc-icon {
+      background: rgba(176, 38, 255, 0.15);
+      color: var(--neon-purple);
+    }
+    
+    @keyframes float-slow {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes float-slow-reverse {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* =========================================
+       SCROLLING MARQUEE
+     ========================================= */
+    .marquee-container {
+      width: 100%; overflow: hidden; background: #0c0c0e; color: var(--text-main);
+      padding: 1.3rem 0; transform: rotate(-1deg) scale(1.02); margin: 6rem 0;
+      border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      position: relative; z-index: 10;
+    }
+    .marquee-content {
+      display: flex; white-space: nowrap; animation: scroll 4s linear infinite; 
+    }
+    .marquee-content span {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem;
+      text-transform: uppercase; padding: 0 2rem; letter-spacing: 2px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =========================================
+       BENTO GRID (BENEFITS)
+     ========================================= */
+    .section-title {
+      text-align: center; margin-bottom: 4.5rem; padding: 0 5%;
+    }
+    .section-title h2 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -1.5px; margin-bottom: 0.6rem;
+    }
+    .section-title h2 span {
+      background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-title p {
+      color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .bento-container {
+      padding: 0 5% 5rem 5%; max-width: 1200px; margin: 0 auto;
+    }
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem;
+    }
+    .bento-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 20px; padding: 2.8rem; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative; overflow: hidden;
+      backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      transition: var(--transition); min-height: 270px;
+    }
+    .bento-card:hover {
+      border-color: rgba(255, 255, 255, 0.2); transform: translateY(-5px);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    }
+    
+    .bento-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(255, 255, 255, 0.04), transparent 45%);
+      pointer-events: none; transition: 0.5s opacity; opacity: 0;
+    }
+    .bento-card:hover::before { opacity: 1; }
+
+    /* Specific Grid Sizing and Hover Glow Accents */
+    .card-elitex { 
+      grid-column: span 12; 
+      min-height: auto;
+      padding: 3.5rem;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.02), transparent); 
+      border-color: rgba(0, 240, 255, 0.15);
+    }
+    .card-elitex:hover { border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 40px rgba(0, 240, 255, 0.05); }
+
+    /* Pure-CSS live dashboard widget */
+    .saas-transactions-widget {
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      background: rgba(3, 3, 3, 0.6);
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+    }
+    .widget-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.8rem;
+    }
+    .widget-header-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .widget-sync-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--neon-blue);
+      border-radius: 50%;
+      animation: pulse-blue 1.5s infinite;
+    }
+    @keyframes pulse-blue {
+      0% { transform: scale(0.9); opacity: 0.4; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.4; }
+    }
+    .widget-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .widget-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      padding-bottom: 0.5rem;
+    }
+    .widget-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .row-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .badge-reels { background: rgba(0, 240, 255, 0.1); color: var(--neon-blue); }
+    .badge-comm { background: rgba(204, 255, 0, 0.1); color: var(--neon-green); }
+    .badge-salary { background: rgba(176, 38, 255, 0.1); color: var(--neon-purple); }
+    .row-details {
+      color: var(--text-muted);
+      flex: 1;
+      margin-left: 10px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .row-amount {
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .widget-progress-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .widget-progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .progress-lbl {
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .progress-percentage {
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .widget-progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .widget-progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+    }
+    .fill-green { background: var(--neon-green); }
+
+    .card-commission { 
+      grid-column: span 6; 
+      background: linear-gradient(135deg, rgba(204, 255, 0, 0.02), transparent); 
+      border-color: rgba(204, 255, 0, 0.15); 
+    }
+    .card-commission:hover { border-color: rgba(204, 255, 0, 0.4); box-shadow: 0 10px 40px rgba(204, 255, 0, 0.05); }
+    
+    .card-followers { 
+      grid-column: span 6; 
+      justify-content: center; 
+      text-align: center; 
+      align-items: center; 
+      border-color: rgba(0, 240, 255, 0.15); 
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.02), transparent); 
+    }
+    .card-followers:hover { border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 40px rgba(0, 240, 255, 0.05); }
+    
+    .card-reels { grid-column: span 6; }
+    
+    .card-equity { 
+      grid-column: span 6; 
+      background: linear-gradient(135deg, rgba(176, 38, 255, 0.02), transparent); 
+      border-color: rgba(176, 38, 255, 0.15); 
+    }
+    .card-equity:hover { border-color: rgba(176, 38, 255, 0.4); box-shadow: 0 10px 40px rgba(176, 38, 255, 0.05); }
+
+    .card-shoot { 
+      grid-column: span 6; 
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.02), transparent); 
+      border-color: rgba(0, 240, 255, 0.15); 
+    }
+    .card-shoot:hover { border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 40px rgba(0, 240, 255, 0.05); }
+
+    .card-agreement { 
+      grid-column: span 6; 
+      background: linear-gradient(135deg, rgba(204, 255, 0, 0.02), transparent); 
+      border-color: rgba(204, 255, 0, 0.15); 
+    }
+    .card-agreement:hover { border-color: rgba(204, 255, 0, 0.4); box-shadow: 0 10px 40px rgba(204, 255, 0, 0.05); }
+
+    /* Card Icons */
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 2.2rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); color: #fff;
+    }
+    .card-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .card-commission .card-icon { color: var(--neon-green); }
+    .card-followers .card-icon { color: var(--neon-blue); }
+    .card-equity .card-icon { color: var(--neon-purple); }
+    .card-shoot .card-icon { color: var(--neon-blue); }
+    .card-agreement .card-icon { color: var(--neon-green); }
+
+    /* Card Content Typography */
+    .bento-card h3 { font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; }
+    .bento-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 400; }
+    
+    .text-green { color: var(--neon-green); }
+    .text-purple { color: var(--neon-purple); }
+    .text-blue { color: var(--neon-blue); }
+    
+    .big-number { font-size: 5.5rem; font-weight: 700; color: var(--text-main); line-height: 0.9; margin-bottom: 0.8rem; font-family: 'Space Grotesk', sans-serif; }
+
+    /* =========================================
+       GROUND RULES & POLICY STATEMENTS
+     ========================================= */
+    .rules-container {
+      padding: 3rem 5% 7rem 5%; max-width: 1200px; margin: 0 auto;
+    }
+    .rules-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+    }
+    .rule-card {
+      background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-color);
+      border-radius: 16px; padding: 2.2rem; display: flex; flex-direction: column; gap: 1.2rem;
+      backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      transition: var(--transition);
+    }
+    .rule-card:hover {
+      border-color: rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.02);
+      transform: translateY(-3px);
+    }
+    .rule-card.warning-neon {
+      border-color: rgba(204, 255, 0, 0.15); background: rgba(204, 255, 0, 0.005);
+    }
+    .rule-card.warning-neon:hover {
+      border-color: rgba(204, 255, 0, 0.35); background: rgba(204, 255, 0, 0.015);
+    }
+    .rule-badge {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--neon-green);
+      background: rgba(204, 255, 0, 0.1); padding: 4px 12px; border-radius: 30px; width: fit-content;
+      letter-spacing: 1.5px; border: 1px solid rgba(204, 255, 0, 0.2);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .rule-card.warning-neon .rule-badge {
+      color: var(--neon-green); background: rgba(204, 255, 0, 0.1); border-color: rgba(204, 255, 0, 0.2);
+    }
+    .rule-card h4 {
+      font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .rule-card p {
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Special styling for wallet freeze card */
+    .rule-card.freeze-warning {
+      border-color: rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.015);
+    }
+    .rule-card.freeze-warning:hover {
+      border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.035);
+    }
+    .rule-card.freeze-warning .rule-badge {
+      color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    /* =========================================
+       EARNINGS CALCULATOR
+     ========================================= */
+    .calc-container {
+      padding: 6rem 5%; max-width: 1200px; margin: 0 auto;
+    }
+    .calc-card {
+      background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-color); border-radius: 28px;
+      padding: 3.8rem; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4.5rem;
+      backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+    
+    .calc-inputs {
+      display: flex; flex-direction: column; gap: 2.2rem;
+    }
+    .calc-title h3 {
+      font-size: 2.4rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .calc-title h3 span {
+      background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .calc-title p {
+      color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;
+    }
+    
+    .slider-group {
+      display: flex; flex-direction: column; gap: 0.9rem;
+    }
+    .slider-header {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .slider-label {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .slider-value {
+      font-size: 1.15rem; font-weight: 700; color: var(--text-main); font-family: 'Space Grotesk', sans-serif;
+    }
+    .slider-value span { color: var(--neon-green); }
+
+    /* Custom range input styling (Startup Green theme) */
+    input[type=range] {
+      -webkit-appearance: none; width: 100%; background: transparent;
+    }
+    input[type=range]:focus { outline: none; }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%; height: 5px; cursor: pointer; background: rgba(255, 255, 255, 0.08); border-radius: 3px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 18px; width: 18px; border-radius: 50%; background: var(--text-main);
+      cursor: pointer; -webkit-appearance: none; margin-top: -6px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); transition: transform 0.2s;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--neon-green); transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+    }
+
+    .calc-results {
+      background: rgba(255, 255, 255, 0.015); border: 1px solid var(--border-color); border-radius: 20px;
+      padding: 2.8rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.8rem;
+      position: relative; overflow: hidden;
+    }
+    .calc-results::before {
+      content: ''; position: absolute; top: -50px; right: -50px; width: 130px; height: 130px;
+      background: radial-gradient(circle, rgba(204, 255, 0, 0.05), transparent 70%); pointer-events: none;
+    }
+    
+    .result-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 1.2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .result-row:last-of-type { border-bottom: none; }
+    
+    .result-label {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .result-val {
+      font-size: 1.15rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .total-earnings-block {
+      background: rgba(204, 255, 0, 0.04); border: 1px solid rgba(204, 255, 0, 0.2);
+      padding: 2rem; border-radius: 14px; margin-top: auto; text-align: center;
+    }
+    .total-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .total-val {
+      font-size: 3.2rem; font-weight: 700; color: var(--neon-green); font-family: 'Space Grotesk', sans-serif; line-height: 1;
+    }
+
+    .calc-warning {
+      background: rgba(239, 68, 68, 0.05); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.15);
+      padding: 12px; border-radius: 10px; font-size: 0.8rem; font-weight: 600;
+      margin-top: 10px; text-align: center; line-height: 1.4;
+    }
+    .calc-success {
+      background: rgba(74, 222, 128, 0.05); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.15);
+      padding: 12px; border-radius: 10px; font-size: 0.8rem; font-weight: 600;
+      margin-top: 10px; text-align: center; line-height: 1.4;
+    }
+
+    /* =========================================
+       FAQ SECTION (ACCORDIONS)
+     ========================================= */
+    .faq-container {
+      padding: 6rem 5%; max-width: 900px; margin: 0 auto;
+    }
+    .faq-list {
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.015); border: 1px solid var(--border-color); border-radius: 12px;
+      overflow: hidden; transition: var(--transition);
+    }
+    .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.15); background: rgba(255,255,255,0.025);
+    }
+    .faq-trigger {
+      width: 100%; padding: 1.6rem 2.2rem; background: transparent; border: none;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; color: var(--text-main); font-size: 1.2rem; font-weight: 600;
+      text-align: left; transition: var(--transition);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .faq-icon {
+      font-size: 1.4rem; font-weight: 300; transition: transform 0.4s ease; line-height: 1;
+      width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+      color: var(--neon-green);
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg); color: var(--text-main);
+    }
+    .faq-content {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-inner {
+      padding: 0 2.2rem 2.2rem 2.2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;
+    }
+
+    /* =========================================
+       JOIN MODAL (SaaS workspace style)
+     ========================================= */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(3, 3, 3, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      z-index: 10000; display: flex; justify-content: center; align-items: center;
+      opacity: 0; visibility: hidden; transition: var(--transition);
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    
+    .modal-content {
+      background: #09090b; border: 1px solid var(--border-color); border-radius: 24px;
+      padding: 4rem 3.5rem; width: 90%; max-width: 480px; text-align: center;
+      transform: translateY(20px) scale(0.97); transition: var(--transition);
+      box-shadow: 0 35px 80px rgba(0,0,0,0.8); position: relative;
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+    .close-modal {
+      position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color);
+      color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: var(--transition);
+      width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .close-modal:hover { color: var(--text-main); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); }
+
+    .modal-content h2 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.6rem; text-transform: uppercase; color: var(--neon-green); font-family: 'Space Grotesk', sans-serif; }
+    .modal-content p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 0.95rem; line-height: 1.6; }
+
+    .input-group { margin-bottom: 1.4rem; text-align: left; display: flex; flex-direction: column; gap: 0.6rem; }
+    .input-group label {
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1.5px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .input-group input {
+      width: 100%; padding: 1.1rem 1.3rem; background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;
+      color: #fff; font-size: 0.95rem; outline: none; font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .input-group input:focus { border-color: var(--neon-green); background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 1px var(--neon-green); }
+    
+    .modal-submit-btn {
+      width: 100%; background: var(--neon-green); color: #000; border: none; padding: 1.2rem;
+      border-radius: 10px; font-weight: 700; font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px;
+      cursor: pointer; transition: var(--transition); margin-top: 1.8rem;
+    }
+    .modal-submit-btn:hover { background: #d8ff33; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(204, 255, 0, 0.25); }
+
+    /* =========================================
+       RESPONSIVE DESIGN
+     ========================================= */
+    @media (max-width: 1080px) {
+      .hero { grid-template-columns: 1fr; gap: 3rem; text-align: center; padding-top: 9rem; }
+      .hero-content { align-items: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .floating-card { display: none; } /* Hide floating decorations on small mobile views to prevent overlays */
+      
+      .bento-card { padding: 1.8rem; }
+      .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .card-commission, .card-followers, .card-reels, .card-equity, .card-elitex, .card-shoot, .card-agreement { grid-column: span 1; min-height: 240px; }
+      
+      .calc-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem; }
+      .calc-results { padding: 1.8rem; }
+      
+      .faq-container { padding: 4rem 5%; }
+      .faq-trigger { padding: 1.3rem 1.6rem; font-size: 1.1rem; }
+      .faq-inner { padding: 0 1.6rem 1.6rem 1.6rem; }
+      
+      .modal-content { padding: 3rem 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 0.8rem 4%; }
+      .logo { font-size: 1.1rem; }
+      .back-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+      
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 0.9rem; }
+      .word-cycler-container {
+        width: 120px;
+        height: 1.45em;
+        margin-left: 4px;
+      }
+      .join-btn { padding: 1rem 2.2rem; font-size: 0.9rem; }
+      
+      .saas-dashboard-panel { max-width: 100%; }
+      .panel-body { padding: 1.2rem; }
+      .panel-value { font-size: 1.8rem; }
+      .panel-footer-metrics { padding-top: 0.8rem; }
+      
+      .bento-card { padding: 1.2rem; }
+      .bento-card h3 { font-size: 1.3rem; }
+      .big-number { font-size: 4rem; }
+      
+      .rule-card { padding: 1.2rem; }
+      
+      .calc-card { padding: 1.2rem; gap: 1.8rem; }
+      .calc-results { padding: 1.2rem; }
+      .total-val { font-size: 2.4rem; }
+      .calc-title h3 { font-size: 1.8rem; }
+      
+      .modal-content { padding: 2rem 1.2rem; }
+      .modal-content h2 { font-size: 1.8rem; }
+
+      /* Mobile Social Row Layout */
+      .social-row {
+        flex-wrap: wrap;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .platform-select-wrapper {
+        width: calc(100% - 52px);
+      }
+      .platform-handle-wrapper {
+        width: 100%;
+        flex: none;
+      }
+      .remove-platform-btn {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    /* Custom scrollbar for terms list */
+    .modal-content div::-webkit-scrollbar {
+      width: 5px;
+    }
+    .modal-content div::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+    }
+    .modal-content div::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+    }
+    .modal-content div::-webkit-scrollbar-thumb:hover {
+      background: var(--neon-green);
+    }
+
+    /* Modal Scroll and Layout Adjustments */
+    .modal-content {
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 0.8rem;
+      align-items: center;
+    }
+    .platform-select-wrapper {
+      position: relative;
+      width: 140px;
+    }
+    .platform-select {
+      width: 100%;
+      padding: 0.9rem 2rem 0.9rem 1rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.85rem;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      transition: var(--transition);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+    }
+    .platform-select:focus {
+      border-color: var(--neon-green);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .platform-handle-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .platform-prefix-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--neon-green);
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+    .platform-handle {
+      width: 100%;
+      padding: 0.9rem 1rem 0.9rem 2.6rem !important;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .platform-handle:focus {
+      border-color: var(--neon-green);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 1px var(--neon-green);
+    }
+    .remove-platform-btn {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .remove-platform-btn:hover {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: rgba(239, 68, 68, 0.45);
+    }
+    .add-platform-btn {
+      background: rgba(255,255,255,0.01);
+      border: 1px dashed var(--border-color);
+      color: var(--text-muted);
+      padding: 0.9rem;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 0.5rem;
+      width: 100%;
+      transition: var(--transition);
+    }
+    .add-platform-btn:hover {
+      border-color: var(--neon-green);
+      color: var(--neon-green);
+      background: rgba(204, 255, 0, 0.03);
+    }
+    .form-checkbox-group {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      margin: 1.5rem 0 1rem 0;
+    }
+    .form-checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+      margin-top: 3px;
+      accent-color: var(--neon-green);
+    }
+    .form-checkbox-label {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+    .form-checkbox-label a {
+      color: var(--neon-green);
+      text-decoration: underline;
+    }
+
+    /* Premium Multi-step Form Animations & Styles */
+    .form-step-section {
+      display: none;
+      animation: formSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .form-step-section.active {
+      display: block;
+    }
+    @keyframes formSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .input-wrapper:focus-within .input-icon {
+      color: var(--neon-green) !important;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .input-wrapper .input-icon {
+      transition: all 0.3s ease;
+    }
+    .input-wrapper input:focus {
+      border-color: var(--neon-green);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 15px rgba(204, 255, 0, 0.08);
+    }
+
+    /* Success Pulse Animation */
+    @keyframes successPulse {
+      0% { box-shadow: 0 0 0 0 rgba(204, 255, 0, 0.45); transform: scale(1); }
+      50% { box-shadow: 0 0 25px 12px rgba(204, 255, 0, 0); transform: scale(1.04); }
+      100% { box-shadow: 0 0 0 0 rgba(204, 255, 0, 0); transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambient Effects -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="profile.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back
+    </a>
+    <div class="logo">
+      <span class="logo-cenin">Cenin</span><span class="logo-creator">Creator</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="heroSparks" class="spark-canvas"></canvas>
+    
+    <div class="hero-content">
+      <div class="hero-badge"><span></span>Creator Alliance</div>
+      <h1>Don't Just Influence.<br><span class="logo-creator">Own It.</span></h1>
+      <p>
+        Stop generating content for brands that only pay you in
+        <span class="word-cycler-container">
+          <span class="word-cycler-text active">EXPOSURE.</span>
+          <span class="word-cycler-text">FREE PRODUCT.</span>
+          <span class="word-cycler-text">THANK YOUS.</span>
+        </span>
+        <br>Join the Cenin Creator program, secure guaranteed cash payouts to your EliteX dashboard wallet, and earn equity ownership in our brand growth.
+      </p>
+      <button class="join-btn" onclick="window.openModal()">Secure Your spot</button>
+    </div>
+    
+    <div class="hero-visual">
+      <!-- Pure CSS SaaS Wallet Panel Mockup (No images) -->
+      <div class="saas-dashboard-panel">
+        <div class="panel-header">
+          <span class="panel-dot dot-red"></span>
+          <span class="panel-dot dot-yellow"></span>
+          <span class="panel-dot dot-green"></span>
+          <span class="panel-title">ELITEX-CONSOLE-V2.1</span>
+        </div>
+        <div class="panel-body">
+          <div class="panel-metric">
+            <span class="panel-label">Dashboard Balance</span>
+            <span class="panel-value">₹4,200.00</span>
+            <span class="panel-status-tag">Active Wallet</span>
+          </div>
+          <div class="panel-chart-container">
+            <!-- SVG Earnings Trend Line -->
+            <svg viewBox="0 0 100 40" class="panel-chart-svg">
+              <defs>
+                <linearGradient id="chart-glow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--neon-green)" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="var(--neon-green)" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M 0,35 Q 20,20 40,25 T 80,10 T 100,5" fill="none" stroke="var(--neon-green)" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M 0,35 Q 20,20 40,25 T 80,10 T 100,5 L 100,40 L 0,40 Z" fill="url(#chart-glow)"></path>
+              <circle cx="100" cy="5" r="3" fill="var(--neon-green)"></circle>
+            </svg>
+          </div>
+          <div class="panel-footer-metrics">
+            <div class="pf-item">
+              <span class="pf-lbl">Reel Views</span>
+              <span class="pf-val text-blue">840K</span>
+            </div>
+            <div class="pf-item">
+              <span class="pf-lbl">Referrals</span>
+              <span class="pf-val text-purple">148</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Floating achievement cards -->
+      <div class="floating-card fc-1">
+        <div class="fc-icon">✓</div>
+        <span>Payout: ₹4,200 Received</span>
+      </div>
+      <div class="floating-card fc-2">
+        <div class="fc-icon">★</div>
+        <span>Equity: Day 45 / 90 Active</span>
+      </div>
+      <div class="floating-card fc-3">
+        <div class="fc-icon">🎁</div>
+        <span>New Drop: Jewelry Unlocked</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLLING MARQUEE -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span>NO FOLLOWERS NEEDED</span> <span>•</span>
+      <span>POWERED BY ELITEX MEDIA</span> <span>•</span>
+      <span>3% - 6% SALES COMMISSION</span> <span>•</span>
+      <span>10% CREATOR EQUITY POOL</span> <span>•</span>
+      <span>₹1 TO ₹99 PAYOUT PER REEL</span> <span>•</span>
+      <span>MIN ₹450 TO WITHDRAW</span> <span>•</span>
+      <span>NO FOLLOWERS NEEDED</span> <span>•</span>
+      <span>POWERED BY ELITEX MEDIA</span> <span>•</span>
+      <span>3% - 6% SALES COMMISSION</span> <span>•</span>
+      <span>10% CREATOR EQUITY POOL</span> <span>•</span>
+      <span>₹1 TO ₹99 PAYOUT PER REEL</span> <span>•</span>
+      <span>MIN ₹450 TO WITHDRAW</span> <span>•</span>
+    </div>
+  </div>
+
+  <!-- BENTO GRID (THE OFFER) -->
+  <section class="bento-container reveal">
+    <div class="section-title">
+      <h2>The Creator <span>Perks</span></h2>
+      <p>A structured alliance framework co-managed by EliteX Media. Explore your perks below.</p>
+    </div>
+    
+    <div class="bento-grid">
+      
+      <!-- EliteX / Brand Deals Card (FULL WIDTH) -->
+      <div class="bento-card card-elitex reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </div>
+        <h3>Powered By <span class="text-blue">EliteX Media Agency</span></h3>
+        <p>To collaborate with Cenin, you will also join the EliteX Agency network. All your earnings are tracked on the <strong>EliteX Creator Dashboard</strong> (managed by EliteX Media) and paid directly to the <strong>Wallet section</strong> of the EliteX platform. Please note: Cenin holds zero ownership in EliteX—it is a completely independent partner agency.</p>
+      </div>
+
+      <!-- 3% - 6% Commission Card -->
+      <div class="bento-card card-commission reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+        </div>
+        <h3>Flat <span class="text-green">3% - 6% Cut</span> on Every Sale</h3>
+        <p>Your content drives checking out, so you deserve your cut. Take a clean, transparent 3% to 6% referral commission on every product checkout driven by your creator links.</p>
+      </div>
+
+      <!-- 0 Followers Card -->
+      <div class="bento-card card-followers reveal">
+        <div class="big-number">0</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 0;">Followers Required</h3>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; text-align: center;">We look for aesthetic content, style, and high-fidelity video production. You are welcome to use multiple accounts to scale your reach.</p>
+      </div>
+
+      <!-- Reels Card -->
+      <div class="bento-card card-reels reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        </div>
+        <h3>Reel Pay: <span class="text-main">₹1 to ₹99 per Video</span></h3>
+        <p>No more free gifts as replacement for real work. For every video you post, we pay you between ₹1 and ₹99 based on your reach over the last 7 to 30 days.</p>
+      </div>
+
+      <!-- 10% Equity Card -->
+      <div class="bento-card card-equity reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h3>Share in Growth: <span class="text-purple">10% Equity Pool</span></h3>
+        <p>We value consistency. By creating and posting regular videos for 90 days, you unlock your share of our dedicated 10% Cenin company equity pool reserved for creators.</p>
+      </div>
+
+      <!-- Shoot and Return Card -->
+      <div class="bento-card card-shoot reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        <h3>Shoot & Return <span class="text-blue">Jewelry Drops</span></h3>
+        <p>After successfully working with us for 30 days, we can provide you with jewelry pieces to shoot videos. A security deposit of ₹149 is required, which is fully refunded upon returning the item.</p>
+      </div>
+
+      <!-- 30-Day Agreement & Fixed Salary Card -->
+      <div class="bento-card card-agreement reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <h3>30-Day Agreement & <span class="text-green">Fixed Payout</span></h3>
+        <p>To join, you sign a 30-day agreement term sheet. After 30 days of active content creation, we award you a fixed monthly salary between ₹1 and ₹1,000 depending on reach.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GROUND RULES & PROTECTION -->
+  <section class="rules-container reveal">
+    <div class="section-title">
+      <h2>Ground Rules & <span>Protections</span></h2>
+      <p>We believe in high-trust relationships. These terms ensure a fair partnership and safeguard our community.</p>
+    </div>
+
+    <div class="rules-grid">
+      <!-- 20% Affiliate rule -->
+      <div class="rule-card reveal">
+        <div class="rule-badge">Mandatory</div>
+        <h4>20% Affiliate Sales Rule</h4>
+        <p>To maintain active payout status, at least <strong>20% of your total estimated monthly earnings</strong> must be generated through your product affiliate links (referral sales).</p>
+      </div>
+
+      <!-- ₹450 redemption -->
+      <div class="rule-card reveal">
+        <div class="rule-badge">Redemption</div>
+        <h4>₹450 Minimum Limit</h4>
+        <p>All earnings directly settle in your EliteX Wallet. You must accumulate a minimum of <strong>₹450</strong> in your wallet to request a redemption/withdrawal.</p>
+      </div>
+
+      <!-- Exclusivity category -->
+      <div class="rule-card reveal">
+        <div class="rule-badge">Contractual</div>
+        <h4>Category Exclusivity</h4>
+        <p>During our active campaign, you are strictly prohibited from collaborating with or promoting any direct competitor brands in the <strong>same particular product category</strong> (e.g., other jewelry lines).</p>
+      </div>
+
+      <!-- Agency exclusivity -->
+      <div class="rule-card reveal">
+        <div class="rule-badge">Contractual</div>
+        <h4>Agency Exclusivity</h4>
+        <p>While registered under the Cenin Creator program, you cannot partner with any other marketing agency or competing affiliate brand. Mismatches lead to blacklisting.</p>
+      </div>
+
+      <!-- Freezing triggers -->
+      <div class="rule-card freeze-warning reveal">
+        <div class="rule-badge">Triggers</div>
+        <h4>Wallet & Account Freezing</h4>
+        <p>EliteX Media reserves the right to freeze part or all of your earnings/account if you break the policy, break the rule, use <strong>fake/bot views</strong>, or violate exclusivity contracts. Violators will be permanently blacklisted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC CALCULATOR -->
+  <section class="calc-container reveal">
+    <div class="calc-card">
+      <div class="calc-inputs">
+        <div class="calc-title">
+          <h3>Earnings <span>Console</span></h3>
+          <p>Estimate your monthly payout and check whether you satisfy the 20% affiliate sales requirement.</p>
+        </div>
+        
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Videos Posted / Month</span>
+            <span class="slider-value" id="val-reels">5</span>
+          </div>
+          <input type="range" id="range-reels" min="1" max="30" value="5" oninput="updateCalculation()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Average Video Reach (Views)</span>
+            <span class="slider-value" id="val-views">50k</span>
+          </div>
+          <input type="range" id="range-views" min="5" max="500" value="50" step="5" oninput="updateCalculation()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Monthly Product Referrals</span>
+            <span class="slider-value" id="val-sales">30</span>
+          </div>
+          <input type="range" id="range-sales" min="1" max="150" value="30" step="1" oninput="updateCalculation()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Commission Rate</span>
+            <span class="slider-value" id="val-commission">5%</span>
+          </div>
+          <input type="range" id="range-commission" min="3" max="6" value="5" step="0.5" oninput="updateCalculation()">
+        </div>
+      </div>
+      
+      <div class="calc-results">
+        <div>
+          <h4 class="sub-heading" style="font-size: 0.8rem; text-transform: uppercase; margin-bottom: 1.8rem; letter-spacing: 2px; color: var(--text-muted);">Estimated Earnings</h4>
+          
+          <div class="result-row">
+            <span class="result-label" id="reach-rate-label">Reach Rate Pay (₹18/video)</span>
+            <span class="result-val" id="result-reels-cash">₹90</span>
+          </div>
+          
+          <div class="result-row">
+            <span class="result-label">Referral Commission</span>
+            <span class="result-val" id="result-comm-cash">₹3,000</span>
+          </div>
+          
+          <div class="result-row">
+            <span class="result-label">Fixed Salary (Post 30 Days)</span>
+            <span class="result-val text-green" id="result-salary">₹100</span>
+          </div>
+        </div>
+        
+        <div class="total-earnings-block">
+          <span class="total-label">Est. Monthly Payout</span>
+          <span class="total-val" id="result-total">₹3,190</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE FAQ SECTION -->
+  <section class="faq-container reveal">
+    <div class="section-title">
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Clear, transparent policies regarding payouts, dashboard access, and agency structures.</p>
+    </div>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="window.toggleFaq(this)">
+          <span>Where are my earnings displayed and managed?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            All your earnings are tracked and recorded in the <strong>EliteX Creator Dashboard</strong> managed by EliteX Media. Amounts earned are credited directly to the <strong>Wallet section</strong> of the EliteX platform.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="window.toggleFaq(this)">
+          <span>Is there a minimum redeem threshold?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            Yes, creators must earn a minimum of <strong>₹450</strong> to initiate a redemption/withdrawal request from their EliteX Wallet.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="window.toggleFaq(this)">
+          <span>What is the 20% affiliate sales requirement?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            To unlock your monthly payout, it is mandatory that at least <strong>20% of your total earnings</strong> must be generated through your product affiliate links (referral sales). This ensures creators actively align with product promotions.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="window.toggleFaq(this)">
+          <span>Under what conditions can my funds be frozen?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            EliteX Media reserves the right to freeze your partial or full earnings if you violate platform rules. Specific triggers include using <strong>fake/bot views</strong>, collaborating with <strong>direct product category competitors</strong> of the promoted brand, or partnering with other <strong>brands/agencies</strong> while working with Cenin and EliteX. Violations will result in a permanent blacklist.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="window.toggleFaq(this)">
+          <span>How does the Cenin and EliteX partnership structure work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            To continue with Cenin, you will also be registered under the EliteX Agency network. Cenin does not own any assets or holdings in EliteX—it is a completely independent agency partnership to handle talent, promotions, and payments.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div style="text-align: center; padding: 4rem 5% 9rem 5%;">
+    <h2 class="sub-heading" style="font-size: 2.2rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1.2px; font-weight: 700;">Ready to secure your spot?</h2>
+    <button class="join-btn" onclick="window.openModal()">Request Invitation</button>
+    <div style="margin-top: 1.5rem;">
+      <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: underline; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.5px; transition: var(--transition);" onmouseover="this.style.color='var(--neon-green)'" onmouseout="this.style.color='var(--text-muted)'" onclick="event.preventDefault(); window.openTermsModal();">Cenin Terms & Conditions</a>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL FOR CREATOR (Google Sign In) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-content" style="max-width: 440px; padding: 3rem 2rem;">
+      <button class="close-modal" onclick="window.closeAuthModal()">✕</button>
+      <h2 style="color: var(--neon-green); font-size: 2rem; margin-bottom: 0.8rem; text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;">Authentication</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2.2rem; font-size: 0.95rem; line-height: 1.6;">Sign in with Google to auto-verify your Cenin account and secure your creator spot.</p>
+      
+      <button class="modal-submit-btn" id="googleAuthBtn" onclick="window.triggerGoogleAuth(this)" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 1rem; background: var(--text-main); color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 700; width: 100%;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;"><path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.478 0-6.3-2.823-6.3-6.3 0-3.478 2.822-6.3 6.3-6.3 1.706 0 3.24.68 4.363 1.782l3.07-3.07C19.3 2.54 16.03 1.1 12.24 1.1 6.136 1.1 1.1 6.136 1.1 12.24s5.036 11.14 11.14 11.14c5.659 0 10.285-4.082 10.285-10.285 0-.572-.05-1.173-.147-1.81H12.24z"/></svg>
+        Sign In with Google
+      </button>
+    </div>
+  </div>
+
+  <!-- JOIN MODAL -->
+  <div class="modal-overlay" id="joinModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="window.closeModal()">✕</button>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: var(--neon-green); text-transform: uppercase; margin-bottom: 0.5rem;">Apply Now</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Secure your spot in the Cenin Creator program.</p>
+      
+      <!-- Modern Progress Line Indicator -->
+      <div class="form-progress-bar" style="display: flex; gap: 8px; margin-bottom: 2.5rem; justify-content: center; align-items: center;">
+        <div class="progress-step active" data-step="1" style="height: 4px; flex: 1; background: var(--neon-green); border-radius: 2px; transition: var(--transition);"></div>
+        <div class="progress-step" data-step="2" style="height: 4px; flex: 1; background: rgba(255,255,255,0.08); border-radius: 2px; transition: var(--transition);"></div>
+        <div class="progress-step" data-step="3" style="height: 4px; flex: 1; background: rgba(255,255,255,0.08); border-radius: 2px; transition: var(--transition);"></div>
+      </div>
+      
+      <form onsubmit="event.preventDefault(); window.submitApplication();" id="creatorApplicationForm">
+        
+        <!-- STEP 1: Basic Information -->
+        <div class="form-step-section active" data-step="1">
+          <!-- Verified Email from Cenin, non-editable -->
+          <div class="input-group">
+            <label for="creatorEmail">Verified Cenin Account Email</label>
+            <div class="input-wrapper" style="position: relative;">
+              <span class="input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; pointer-events: none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </span>
+              <input type="email" id="creatorEmail" readonly required style="background: rgba(255,255,255,0.04); color: var(--text-muted); cursor: not-allowed; border-color: rgba(255,255,255,0.05); padding-left: 2.8rem;">
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="input-group">
+            <label for="creatorName">Full Name</label>
+            <div class="input-wrapper" style="position: relative;">
+              <span class="input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; pointer-events: none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </span>
+              <input type="text" id="creatorName" placeholder="Your Full Name" required style="padding-left: 2.8rem;">
+            </div>
+          </div>
+
+          <!-- Alt Email -->
+          <div class="input-group">
+            <label for="creatorAltEmail">Alternative Email (Optional)</label>
+            <div class="input-wrapper" style="position: relative;">
+              <span class="input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; pointer-events: none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
+              <input type="email" id="creatorAltEmail" placeholder="alternative@domain.com" style="padding-left: 2.8rem;">
+            </div>
+          </div>
+
+          <!-- Mobile Phone -->
+          <div class="input-group">
+            <label for="creatorPhone">Mobile Number (WhatsApp Enabled)</label>
+            <div class="input-wrapper" style="position: relative;">
+              <span class="input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; pointer-events: none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </span>
+              <input type="tel" id="creatorPhone" placeholder="e.g. +91 98765 43210" required style="padding-left: 2.8rem;">
+            </div>
+          </div>
+
+          <button type="button" class="modal-submit-btn" onclick="window.nextStep(1)">Continue to Socials</button>
+        </div>
+
+        <!-- STEP 2: Social Media Platforms -->
+        <div class="form-step-section" data-step="2">
+          <div class="input-group">
+            <label style="margin-bottom: 0.6rem;">Social Media Accounts *</label>
+            <div id="socialPlatformsContainer">
+              <!-- Dynamic rows will be added by javascript -->
+            </div>
+            <button type="button" class="add-platform-btn" onclick="window.addSocialRow()">
+              <span>+</span> Add Another Social Account
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 2rem;">
+            <button type="button" class="add-platform-btn" onclick="window.prevStep(2)" style="margin: 0; flex: 1; border-style: solid;">Back</button>
+            <button type="button" class="modal-submit-btn" onclick="window.nextStep(2)" style="margin: 0; flex: 2;">Continue to Niche</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Content Niche, Followers, Portfolio & Consent -->
+        <div class="form-step-section" data-step="3">
+          <!-- Relevant Questions -->
+          <div class="input-group">
+            <label for="creatorNiche">Content Niche / Category</label>
+            <select id="creatorNiche" style="width: 100%; padding: 1.1rem 1.3rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none; font-family: 'Inter', sans-serif; transition: var(--transition);" required>
+              <option value="" disabled selected style="background: #09090b;">Select your niche</option>
+              <option value="jewelry" style="background: #09090b;">Jewelry & Accessories</option>
+              <option value="fashion" style="background: #09090b;">Fashion & Styling</option>
+              <option value="beauty" style="background: #09090b;">Beauty & Makeup</option>
+              <option value="lifestyle" style="background: #09090b;">Lifestyle & Travel</option>
+              <option value="comedy" style="background: #09090b;">Comedy & Entertainment</option>
+              <option value="other" style="background: #09090b;">Other</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="creatorFollowers">Total Follower Count (Across Channels)</label>
+            <select id="creatorFollowers" style="width: 100%; padding: 1.1rem 1.3rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none; font-family: 'Inter', sans-serif; transition: var(--transition);" required>
+              <option value="" disabled selected style="background: #09090b;">Select follower range</option>
+              <option value="under_5k" style="background: #09090b;">Under 5,000</option>
+              <option value="5k_20k" style="background: #09090b;">5,000 - 20,000</option>
+              <option value="20k_100k" style="background: #09090b;">20,000 - 100,000</option>
+              <option value="100k_500k" style="background: #09090b;">100,000 - 500,000</option>
+              <option value="500k_plus" style="background: #09090b;">500,000+</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="creatorPortfolio">Portfolio / Link to Best Content</label>
+            <div class="input-wrapper" style="position: relative;">
+              <span class="input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; pointer-events: none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+              </span>
+              <input type="url" id="creatorPortfolio" placeholder="https://instagram.com/... or portfolio link" required style="padding-left: 2.8rem;">
+            </div>
+          </div>
+
+          <!-- Terms and conditions contact consent checkbox -->
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="acceptTermsConsent" required>
+            <label for="acceptTermsConsent" class="form-checkbox-label">
+              I accept the <a href="#" style="color: var(--neon-green); text-decoration: underline;" onclick="event.preventDefault(); window.openTermsModal();">Cenin Terms & Conditions</a> and understand that in future all terms and conditions are automatically applied. I grant Cenin and EliteX the right to contact me through all details provided (including email, phone, WhatsApp, or any social media) at any time.
+            </label>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 2rem;">
+            <button type="button" class="add-platform-btn" onclick="window.prevStep(3)" style="margin: 0; flex: 1; border-style: solid;">Back</button>
+            <button type="submit" class="modal-submit-btn" id="submitBtn" style="margin: 0; flex: 2;">Apply Now</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Success Confirmation -->
+        <div class="form-step-section" data-step="4" style="text-align: center; padding: 1rem 0;">
+          <div class="success-icon-wrapper" style="margin-bottom: 2rem; display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; background: rgba(204, 255, 0, 0.08); border: 2px solid var(--neon-green); color: var(--neon-green);">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; color: #fff; text-transform: uppercase; margin-bottom: 1rem;">Application Received!</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2.2rem; text-align: center;">
+            Thank you for applying to the Cenin Creator program. Our onboarding specialists will review your profile, verify your channels, and reach out to you shortly (typically within a few hours) via email, phone, WhatsApp, or social media to finalize your EliteX dashboard setup.
+          </p>
+          <button type="button" class="modal-submit-btn" onclick="window.closeModal()" style="margin: 0; width: 100%;">Got It, Thanks</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS MODAL -->
+  <div class="modal-overlay" id="termsModal" style="z-index: 11000;">
+    <div class="modal-content" style="max-width: 650px; padding: 3rem 3rem; text-align: left;">
+      <button class="close-modal" onclick="window.closeTermsModal()">✕</button>
+      <h2 style="color: var(--neon-green); font-size: 1.8rem; margin-bottom: 0.8rem; text-align: center; text-transform: uppercase;">Cenin Terms & Conditions</h2>
+      <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">Official Legal Agreement for the Cenin Creator Alliance Program.</p>
+      
+      <div style="font-size: 0.8rem; line-height: 1.6; color: var(--text-main); display: flex; flex-direction: column; gap: 1.2rem; max-height: 420px; overflow-y: auto; padding-right: 8px;">
+        
+        <div style="background: rgba(204, 255, 0, 0.06); border: 1px solid rgba(204, 255, 0, 0.25); padding: 1rem; border-radius: 12px; font-weight: 700; color: var(--neon-green); font-family: 'Space Grotesk', sans-serif;">
+          ⚠️ MANDATORY DISCLOSURE: These terms govern the relationship, collaboration policies, and compensation frameworks strictly between you (the "Creator") and Cenin (the "Brand"). These terms DO NOT apply to, alter, or replace the policies of EliteX Media Agency. EliteX functions as an independent partner agency network. You must separately review and accept the EliteX Media terms of service to activate your dashboard, use the dashboard wallet, and withdraw funds. Cenin holds no stake or ownership in EliteX Media.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">1. Agreement Scope & Trial Intake</strong>
+          To participate in the Cenin Creator program, the Creator must enter into an initial 30-day trial term sheet contract. This trial agreement specifies content schedule requirements and allows Cenin to review creator consistency and engagement patterns. Continuing past this 30-day window requires mutual consent and compliance with all active performance standards.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">2. Reel Reach Payout Structure</strong>
+          Compensation is calculated based on video reach analytics. For each verified video/reel posted, the Creator will receive a payout ranging between ₹1 and ₹99, calculated dynamically according to video reach over the last 7 to 30 days. Payouts require zero minimum followers, allowing creators of any audience scale to join. Multiple accounts are permitted to scale content reach, subject to separate analytics tracking.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">3. Post-Trial Fixed Monthly Allowance</strong>
+          Upon successful completion of the 30-day trial agreement under Cenin guidelines, the Creator is eligible to receive a fixed monthly salary allowance. This allowance scales from a minimum of ₹1 to a maximum of ₹1,000, determined by the average monthly reach and verified content production volume generated during the trial period.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">4. Creator Equity Program</strong>
+          Cenin values long-term creator alignments. Creators who consistently publish regular promotional content for 90 consecutive days will qualify for entry into Cenin's dedicated 10% Creator Equity Pool. Equity distributions are calculated based on creator contribution weights and company valuations, subject to a formal equity vesting agreement.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">5. Shoot-and-Return Product Drops</strong>
+          Following 30 days of active participation, the Creator may request jewelry pieces for content creation shoots. To unlock this feature, a security deposit of ₹149 is required per drop. This deposit is fully refundable and will be credited back to your dashboard wallet upon safe, timely return of the jewelry items in their original condition.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">6. Product Sales Referral Commissions</strong>
+          The Creator will receive a 3% to 6% commission split on the gross purchase value of all checkouts driven by their unique referral tracking links. Commission percentages vary depending on the product lines promoted and checkout campaign values.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">7. Performance Quota (20% Affiliate Sales Rule)</strong>
+          To prevent passive monetization and ensure active promotion alignment, the Creator must generate at least 20% of their total estimated monthly earnings (sum of reach pay, fixed salary, and commissions) from affiliate sales commissions. If this threshold is not met, payout withdrawals for that cycle will remain locked until the quota is satisfied.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">8. Exclusivity & Non-Compete Protections</strong>
+          During active campaign periods, the Creator agrees not to work with, promote, or represent direct competitor brands operating in the same product category (e.g., other jewelry design lines). Additionally, the Creator is prohibited from partnering with competing affiliate networks or agencies while active in the Cenin program.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">9. Dashboard Operations & Withdrawal Limits</strong>
+          All creator accounting, analytics tracking, and payout settlements are managed via the EliteX Dashboard Console. Balance redemptions and withdrawals from your EliteX Wallet are subject to a minimum withdrawal threshold of ₹450.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">10. Compliance, Fraud, & Suspension</strong>
+          EliteX Media Agency and Cenin reserve the right to freeze dashboard wallet balances and terminate collaboration agreements immediately if the Creator engages in fraudulent activity (including the use of bot views, click farms, fake traffic, or duplicate submissions) or violates exclusivity and non-compete clauses.
+        </div>
+
+        <div>
+          <strong style="color: var(--neon-blue); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; letter-spacing: 0.5px; display: block; margin-bottom: 0.3rem;">11. Governing Law & Dispute Resolution</strong>
+          This agreement shall be governed by, and construed in accordance with, the applicable commercial laws. Any disputes arising from contract execution, jewelry returns, or payout calculations shall be settled via binding arbitration under local jurisdiction.
+        </div>
+
+      </div>
+      
+      <button onclick="window.closeTermsModal()" class="modal-submit-btn" style="margin-top: 1.5rem; width: 100%;">Agree & Close</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content" style="max-width: 460px; padding: 4rem 3rem; text-align: center; border-color: rgba(204, 255, 0, 0.35); background: linear-gradient(180deg, #09090b 0%, #030303 100%);">
+      <button class="close-modal" onclick="window.closeSuccessModal()">✕</button>
+      
+      <div class="success-glow-wrapper" style="position: relative; display: inline-block; margin-bottom: 2rem;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; background: radial-gradient(circle, rgba(204, 255, 0, 0.2), transparent 70%); z-index: -1;"></div>
+        <div class="success-icon-wrapper" style="display: flex; align-items: center; justify-content: center; width: 84px; height: 84px; border-radius: 50%; background: rgba(204, 255, 0, 0.06); border: 2.5px solid var(--neon-green); color: var(--neon-green); animation: successPulse 2s infinite ease-in-out;">
+          <svg viewBox="0 0 24 24" width="38" height="38" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+      </div>
+
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: #fff; text-transform: uppercase; margin-bottom: 0.8rem; letter-spacing: -0.5px;">Application Received!</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2.2rem; text-align: center;">
+        Your application is now under review. Our crew team will connect with you shortly (usually within a few minutes) via WhatsApp, Phone, or Email to finalize your setup.
+      </p>
+      
+      <button type="button" class="modal-submit-btn" onclick="window.closeSuccessModal()" style="margin: 0; width: 100%; box-shadow: 0 0 25px rgba(204, 255, 0, 0.25);">Awesome, Thanks!</button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- Firebase Integration & App Scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, doc, updateDoc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5uoITdl5gXDxvvtW60mlRWbEjLejxgRM",
+      authDomain: (window.location.hostname && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") ? window.location.hostname : "ceninasia.firebaseapp.com",
+      projectId: "ceninasia",
+      storageBucket: "ceninasia.firebasestorage.app",
+      messagingSenderId: "234745308370",
+      appId: "1:234745308370:web:77a89729fa6d829d37390b"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    
+    window.db = db;
+    window.auth = auth;
+    window.currentUser = null;
+
+    // Seamless infinite scroll marquee duplicator
+    const marqueeContent = document.querySelector('.marquee-content');
+    if (marqueeContent) {
+      marqueeContent.innerHTML += marqueeContent.innerHTML;
+    }
+
+    // Modal Control
+    const modal = document.getElementById('joinModal');
+    const termsModal = document.getElementById('termsModal');
+    const authModal = document.getElementById('authModal');
+    
+    function openModal() {
+      if (window.currentUser) {
+        // User is logged in, prefill and open join application modal
+        const emailInput = document.getElementById('creatorEmail');
+        if (emailInput) {
+          emailInput.value = window.currentUser.email || '';
+        }
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Ensure at least one social row exists
+          const container = document.getElementById('socialPlatformsContainer');
+          if (container && container.children.length === 0) {
+            window.addSocialRow();
+          }
+        }
+      } else {
+        // User is not logged in, trigger auth Modal
+        window.openAuthModal();
+      }
+    }
+    
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+          window.goToStep(1);
+        }, 400);
+      }
+    }
+
+    function openAuthModal() {
+      if (authModal) {
+        authModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeAuthModal() {
+      if (authModal) {
+        authModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function openTermsModal() {
+      if (termsModal) {
+        termsModal.classList.add('active');
+        if (!modal.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    }
+
+    function closeTermsModal() {
+      if (termsModal) {
+        termsModal.classList.remove('active');
+        if (!modal.classList.contains('active') && !authModal.classList.contains('active')) {
+          document.body.style.overflow = 'auto';
+        }
+      }
+    }
+
+    // Success Modal control
+    const successModal = document.getElementById('successModal');
+    function openSuccessModal() {
+      if (successModal) {
+        successModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeSuccessModal() {
+      if (successModal) {
+        successModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+    window.openSuccessModal = openSuccessModal;
+    window.closeSuccessModal = closeSuccessModal;
+
+    if (successModal) {
+      successModal.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+          closeSuccessModal();
+        }
+      });
+    }
+
+    // Helper: format and validate a social platform URL
+    window.formatAndValidatePlatformUrl = function(platform, input) {
+      let val = input.value.trim();
+      if (!val) {
+        input.setCustomValidity("");
+        return true;
+      }
+      
+      // Auto prepend https:// if it doesn't have it
+      if (!/^https?:\/\//i.test(val)) {
+        val = 'https://' + val;
+        input.value = val;
+      }
+      
+      try {
+        const parsed = new URL(val);
+        const hostname = parsed.hostname.toLowerCase();
+        
+        let match = false;
+        if (platform === 'instagram') {
+          match = hostname === 'instagram.com' || hostname.endsWith('.instagram.com') || hostname === 'instagr.am' || hostname.endsWith('.instagr.am');
+        } else if (platform === 'youtube') {
+          match = hostname === 'youtube.com' || hostname.endsWith('.youtube.com') || hostname === 'youtu.be' || hostname.endsWith('.youtu.be');
+        } else if (platform === 'snapchat') {
+          match = hostname === 'snapchat.com' || hostname.endsWith('.snapchat.com');
+        } else if (platform === 'twitter') {
+          match = hostname === 'twitter.com' || hostname.endsWith('.twitter.com') || hostname === 'x.com' || hostname.endsWith('.x.com');
+        }
+        
+        if (!match) {
+          const domainStr = {
+            instagram: 'instagram.com',
+            youtube: 'youtube.com',
+            snapchat: 'snapchat.com',
+            twitter: 'twitter.com or x.com'
+          }[platform];
+          input.setCustomValidity(`Please enter a valid ${platform.toUpperCase()} URL (e.g., https://${domainStr}/username)`);
+          return false;
+        } else {
+          // Verify it has a path/username (not just the homepage)
+          const path = parsed.pathname.replace(/^\/+/g, '');
+          if (!path) {
+            input.setCustomValidity(`Please include your profile username or channel ID in the URL.`);
+            return false;
+          }
+          input.setCustomValidity("");
+          return true;
+        }
+      } catch (e) {
+        input.setCustomValidity("Please enter a valid URL.");
+        return false;
+      }
+    };
+
+    window.validateSocialInput = function(inputEl) {
+      const row = inputEl.closest('.social-row');
+      if (row) {
+        const platform = row.querySelector('.platform-select').value;
+        window.formatAndValidatePlatformUrl(platform, inputEl);
+      }
+    };
+
+    // Multi-step Wizard Navigation Logic
+    function nextStep(currentStep) {
+      const section = document.querySelector(`.form-step-section[data-step="${currentStep}"]`);
+      const inputs = section.querySelectorAll('input, select');
+      let allValid = true;
+      inputs.forEach(input => {
+        if (!input.checkValidity()) {
+          input.reportValidity();
+          allValid = false;
+        }
+      });
+
+      // Step 1 validations
+      if (currentStep === 1 && allValid) {
+        // Email validations
+        const emailInput = document.getElementById('creatorEmail');
+        const altEmailInput = document.getElementById('creatorAltEmail');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailInput.setCustomValidity("Please enter a valid verified email address.");
+          emailInput.reportValidity();
+          allValid = false;
+        } else {
+          emailInput.setCustomValidity("");
+        }
+        
+        if (allValid && altEmailInput.value.trim() !== "") {
+          if (!emailRegex.test(altEmailInput.value.trim())) {
+            altEmailInput.setCustomValidity("Please enter a valid alternative email address.");
+            altEmailInput.reportValidity();
+            allValid = false;
+          } else {
+            altEmailInput.setCustomValidity("");
+          }
+        }
+
+        // Phone number validation (exactly 10 digits, optionally prefix 91 or +91)
+        if (allValid) {
+          const phoneInput = document.getElementById('creatorPhone');
+          const rawPhone = phoneInput.value.trim();
+          const strippedPhone = rawPhone.replace(/\D/g, '');
+          const isValidPhone = (strippedPhone.length === 10) || (strippedPhone.length === 12 && strippedPhone.startsWith('91'));
+          
+          if (!isValidPhone) {
+            phoneInput.setCustomValidity("Please enter a valid 10-digit mobile number.");
+            phoneInput.reportValidity();
+            allValid = false;
+          } else {
+            phoneInput.setCustomValidity("");
+          }
+        }
+      }
+
+      // Step 2 validations
+      if (currentStep === 2 && allValid) {
+        const socialRows = document.querySelectorAll('.social-row');
+        let hasOneFilled = false;
+        let allUrlsValid = true;
+
+        socialRows.forEach(row => {
+          const platform = row.querySelector('.platform-select').value;
+          const handleInput = row.querySelector('.platform-handle');
+          const val = handleInput.value.trim();
+          
+          if (val) {
+            hasOneFilled = true;
+            if (!window.formatAndValidatePlatformUrl(platform, handleInput)) {
+              handleInput.reportValidity();
+              allUrlsValid = false;
+            }
+          }
+        });
+
+        if (!hasOneFilled) {
+          alert("Please enter a profile URL for at least one social media platform.");
+          allValid = false;
+        } else if (!allUrlsValid) {
+          allValid = false;
+        }
+      }
+
+      if (allValid) {
+        goToStep(currentStep + 1);
+      }
+    }
+
+    function prevStep(currentStep) {
+      goToStep(currentStep - 1);
+    }
+
+    function goToStep(stepNum) {
+      document.querySelectorAll('.form-step-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      const activeSec = document.querySelector(`.form-step-section[data-step="${stepNum}"]`);
+      if (activeSec) {
+        activeSec.classList.add('active');
+      }
+      document.querySelectorAll('.progress-step').forEach(dot => {
+        const dotStep = parseInt(dot.getAttribute('data-step'));
+        if (dotStep <= stepNum) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    // Bind modals and wizard to window
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+    window.openAuthModal = openAuthModal;
+    window.closeAuthModal = closeAuthModal;
+    window.openTermsModal = openTermsModal;
+    window.closeTermsModal = closeTermsModal;
+    window.nextStep = nextStep;
+    window.prevStep = prevStep;
+    window.goToStep = goToStep;
+
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    if (termsModal) {
+      termsModal.addEventListener('click', function(e) {
+        if (e.target === termsModal) {
+          closeTermsModal();
+        }
+      });
+    }
+
+    if (authModal) {
+      authModal.addEventListener('click', function(e) {
+        if (e.target === authModal) {
+          closeAuthModal();
+        }
+      });
+    }
+
+    function showSuspensionOverlay(email, userIp, userData) {
+        document.body.style.overflow = 'hidden';
+        let overlay = document.getElementById("suspendedOverlay");
+        if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.id = "suspendedOverlay";
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.backgroundColor = "#09090b";
+            overlay.style.color = "#fafafa";
+            overlay.style.zIndex = "9999999";
+            overlay.style.display = "flex";
+            overlay.style.flexDirection = "column";
+            overlay.style.alignItems = "center";
+            overlay.style.justifyContent = "flex-start";
+            overlay.style.padding = "0.5rem 1rem";
+            overlay.style.overflowY = "auto";
+            overlay.style.fontFamily = "'Inter', sans-serif";
+            document.body.appendChild(overlay);
+        }
+        
+        const appealStatus = userData ? userData.appealStatus : "";
+        let appealContent = "";
+        
+        if (!appealStatus) {
+            appealContent = `
+              <h3 style="font-size:1rem; font-weight:700; color:#fafafa; margin-bottom:0.8rem; text-transform:uppercase; letter-spacing:0.5px;">Appeal Suspension</h3>
+              <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                <div>
+                  <label style="font-size:0.7rem; font-weight:600; text-transform:uppercase; color:#a1a1aa; display:block; margin-bottom:4px;">Full Name</label>
+                  <input type="text" id="appealName" placeholder="Enter your full name" style="width:100%; padding:0.75rem; background:#09090b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; color:#fff; outline:none; font-family:inherit; font-size:0.85rem;" required>
+                </div>
+                <div>
+                  <label style="font-size:0.7rem; font-weight:600; text-transform:uppercase; color:#a1a1aa; display:block; margin-bottom:4px;">Contact Number</label>
+                  <input type="text" id="appealPhone" placeholder="Enter your contact number" style="width:100%; padding:0.75rem; background:#09090b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; color:#fff; outline:none; font-family:inherit; font-size:0.85rem;" required>
+                </div>
+                <div>
+                  <label style="font-size:0.7rem; font-weight:600; text-transform:uppercase; color:#a1a1aa; display:block; margin-bottom:4px;">Why should your account be reinstated?</label>
+                  <textarea id="appealReason" placeholder="Explain your case..." style="width:100%; padding:0.75rem; background:#09090b; border:1px solid rgba(255,255,255,0.08); border-radius:6px; color:#fff; outline:none; resize:vertical; min-height:80px; font-family:inherit; font-size:0.85rem;" required></textarea>
+                </div>
+                <button id="submitAppealBtn" style="background:#EAB308; color:#000; border:none; padding:0.8rem; border-radius:6px; font-weight:800; font-size:0.9rem; cursor:pointer; text-transform:uppercase; letter-spacing:0.5px; margin-top:0.5rem; transition:all 0.2s; font-family:inherit;">
+                  Submit Appeal
+                </button>
+              </div>
+            `;
+        } else if (appealStatus === "pending") {
+            appealContent = `
+              <div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; padding:0.5rem 0;">
+                <span style="font-size:2rem;">⏳</span>
+                <h3 style="font-size:1.05rem; font-weight:800; color:#EAB308; text-transform:uppercase; letter-spacing:0.5px; margin:0;">Appeal Under Review</h3>
+                <p style="color:#a1a1aa; font-size:0.85rem; line-height:1.4; margin:0;">Our team will contact you within a short time. We are currently verifying your details and appeal reason.</p>
+              </div>
+            `;
+        } else if (appealStatus === "rejected") {
+            appealContent = `
+              <div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; padding:0.5rem 0;">
+                <span style="font-size:2rem;">❌</span>
+                <h3 style="font-size:1.05rem; font-weight:800; color:#ef4444; text-transform:uppercase; letter-spacing:0.5px; margin:0;">Appeal Rejected</h3>
+                <p style="color:#a1a1aa; font-size:0.85rem; line-height:1.4; margin:0;">Your appeal has been reviewed and rejected. This suspension is permanent and cannot be appealed again.</p>
+              </div>
+            `;
+        } else if (appealStatus === "approved") {
+            appealContent = `
+              <div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; padding:0.5rem 0;">
+                <span style="font-size:2rem;">✅</span>
+                <h3 style="font-size:1.05rem; font-weight:800; color:#4ade80; text-transform:uppercase; letter-spacing:0.5px; margin:0;">Appeal Approved</h3>
+                <p style="color:#a1a1aa; font-size:0.85rem; line-height:1.4; margin:0;">Good news! Your appeal has been approved. Access to your account is restored.</p>
+                <button onclick="window.location.reload()" style="background:#4ade80; color:#000; border:none; padding:0.7rem 1.2rem; border-radius:6px; font-weight:800; font-size:0.85rem; cursor:pointer; text-transform:uppercase; margin-top:0.5rem; font-family:inherit;">
+                  Reload Page
+                </button>
+              </div>
+            `;
+        }
+        
+        overlay.innerHTML = `
+          <div style="width:100%; max-width:480px; display:flex; flex-direction:column; gap:1.2rem; text-align:center; margin: auto 0; padding: 1.5rem 0;">
+            <h2 style="font-size:clamp(1.5rem, 6vw, 1.8rem); font-weight:800; color:#ef4444; letter-spacing:1px; text-transform:uppercase; margin:0;">Account Suspended</h2>
+            <p style="color:#a1a1aa; font-size:clamp(0.8rem, 3.5vw, 0.9rem); margin-top:-0.3rem; margin-bottom:0; line-height:1.4;">Your account or network access has been restricted due to policy violations.</p>
+            
+            <!-- YouTube Video -->
+            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
+              <iframe style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe>
+            </div>
+            
+            <!-- Appeal Section -->
+            <div id="appealSection" style="background:#18181b; border:1px solid rgba(255,255,255,0.08); padding:1.2rem; border-radius:12px; text-align:left;">
+              ${appealContent}
+            </div>
+            
+            <!-- Logout / Switch Account Button -->
+            <button id="suspendedLogoutBtn" style="background:transparent; border:1px solid rgba(255,255,255,0.1); color:#fafafa; padding:0.75rem; border-radius:8px; font-weight:600; font-size:0.85rem; cursor:pointer; transition:all 0.2s; font-family:inherit;">
+              Sign Out / Use Different Account
+            </button>
+          </div>
+        `;
+        
+        const logoutBtn = document.getElementById("suspendedLogoutBtn");
+        if (logoutBtn) {
+            logoutBtn.onclick = async () => {
+                try {
+                    await signOut(auth);
+                    window.location.reload();
+                } catch (e) {
+                    console.error("Sign out failed:", e);
+                }
+            };
+        }
+        
+        const submitBtn = document.getElementById("submitAppealBtn");
+        if (submitBtn) {
+            submitBtn.onclick = async () => {
+                const nameVal = document.getElementById("appealName").value.trim();
+                const phoneVal = document.getElementById("appealPhone").value.trim();
+                const reasonVal = document.getElementById("appealReason").value.trim();
+                
+                if (!nameVal || !phoneVal || !reasonVal) {
+                    alert("Please fill in all details for the appeal.");
+                    return;
+                }
+                
+                submitBtn.disabled = true;
+                submitBtn.innerText = "Submitting Appeal...";
+                
+                try {
+                    const userRef = doc(db, "users", email);
+                    await setDoc(userRef, {
+                        appealStatus: "pending",
+                        appealDetails: {
+                            name: nameVal,
+                            phone: phoneVal,
+                            reason: reasonVal,
+                            submittedAt: new Date()
+                        }
+                    }, { merge: true });
+                    
+                    alert("Your appeal has been submitted successfully!");
+                    window.location.reload();
+                } catch(err) {
+                    console.error("Error submitting appeal:", err);
+                    alert("Failed to submit appeal: " + err.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Appeal";
+                }
+            };
+        }
+    }
+
+    async function checkUserBlockStatus(user) {
+        if (!user) return true;
+        const email = user.email.toLowerCase().trim();
+        let userIp = "";
+        try {
+            const ipRes = await fetch("https://api.ipify.org?format=json");
+            const ipData = await ipRes.json();
+            userIp = ipData.ip || "";
+        } catch (e) {
+            console.error("Failed to fetch IP address:", e);
+        }
+        
+        try {
+            const userRef = doc(db, "users", email);
+            const userSnap = await getDoc(userRef);
+            let isBlocked = false;
+            let userData = null;
+            
+            if (userSnap.exists()) {
+                userData = userSnap.data();
+                if (userData.blocked) {
+                    isBlocked = true;
+                }
+            }
+            
+            if (!isBlocked && userIp) {
+                const ipRef = doc(db, "blocked_ips", userIp);
+                const ipSnap = await getDoc(ipRef);
+                if (ipSnap.exists()) {
+                    isBlocked = true;
+                    await setDoc(userRef, { blocked: true }, { merge: true });
+                }
+            }
+            
+            if (isBlocked) {
+                showSuspensionOverlay(email, userIp, userData);
+                return false;
+            }
+            
+            const overlay = document.getElementById("suspendedOverlay");
+            if (overlay) {
+                overlay.remove();
+                document.body.style.overflow = '';
+            }
+            
+            const updateData = {
+                email: email,
+                displayName: user.displayName || "",
+                lastLogin: new Date()
+            };
+            if (userIp) {
+                updateData.lastIp = userIp;
+            }
+            await setDoc(userRef, updateData, { merge: true });
+            return true;
+        } catch (e) {
+            console.error("Error checking user block status:", e);
+            return true;
+        }
+    }
+
+    // Auth state observer
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const allowed = await checkUserBlockStatus(user);
+        if (!allowed) return;
+
+        window.currentUser = user;
+        // If authModal is open, close it and open joinModal
+        if (authModal && authModal.classList.contains('active')) {
+          closeAuthModal();
+          openModal();
+        }
+      } else {
+        window.currentUser = null;
+      }
+    });
+
+    // Handle Google Auth Trigger
+    window.triggerGoogleAuth = async function(btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "Authenticating securely...";
+      btn.disabled = true;
+      
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+      if (isMobile) {
+        try {
+          signInWithRedirect(auth, provider);
+        } catch (error) {
+          console.error("Redirect Error:", error);
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      } else {
+        try {
+          const result = await signInWithPopup(auth, provider);
+          window.currentUser = result.user;
+          closeAuthModal();
+          openModal();
+        } catch (error) {
+          console.error("Google Auth Error:", error);
+          if (error.code === "auth/popup-blocked" || error.code === "auth/popup-closed-by-user" || error.code === "auth/cancelled-popup-request") {
+            signInWithRedirect(auth, provider);
+            return;
+          } else {
+            alert("Authentication failed. Please try again.");
+          }
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      }
+    };
+
+    getRedirectResult(auth).then((result) => {
+      if (result && result.user) {
+        window.currentUser = result.user;
+        if (authModal && authModal.classList.contains('active')) {
+          closeAuthModal();
+          openModal();
+        }
+      }
+    }).catch((error) => {
+      console.error("Redirect Auth Error:", error);
+    });
+
+    // FAQ Accordion Controls
+    function toggleFaq(trigger) {
+      const item = trigger.parentElement;
+      const content = trigger.nextElementSibling;
+      const isOpen = item.classList.contains('active');
+      
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-content').style.maxHeight = '0';
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        item.classList.remove('active');
+        content.style.maxHeight = '0';
+      }
+    }
+    window.toggleFaq = toggleFaq;
+
+    // Earnings Calculator Logic
+    function updateCalculation() {
+      const reels = parseInt(document.getElementById('range-reels').value) || 0;
+      const viewsVal = parseInt(document.getElementById('range-views').value) || 0;
+      const sales = parseInt(document.getElementById('range-sales').value) || 0;
+      const commRate = parseFloat(document.getElementById('range-commission').value) || 3;
+      
+      // Update slider value text
+      document.getElementById('val-reels').innerText = reels;
+      document.getElementById('val-views').innerText = viewsVal + 'k';
+      document.getElementById('val-sales').innerText = sales;
+      document.getElementById('val-commission').innerText = commRate + '%';
+      
+      // Pay scale calculation per video based on views reach (₹1 to ₹99)
+      let payPerVideo = 1;
+      if (viewsVal >= 450) payPerVideo = 99;
+      else if (viewsVal >= 350) payPerVideo = 80;
+      else if (viewsVal >= 250) payPerVideo = 60;
+      else if (viewsVal >= 150) payPerVideo = 45;
+      else if (viewsVal >= 80) payPerVideo = 30;
+      else if (viewsVal >= 40) payPerVideo = 18;
+      else if (viewsVal >= 15) payPerVideo = 8;
+      else payPerVideo = 3;
+
+      document.getElementById('reach-rate-label').innerText = `Reach Rate Pay (₹${payPerVideo}/video)`;
+      
+      const reelPayout = reels * payPerVideo;
+      const commPayout = Math.round(sales * 2000 * (commRate / 100)); // 3-6% of AOV (₹2,000)
+      
+      // Fixed salary calculation based on views reach (₹1 to ₹1,000)
+      let fixedSalary = Math.round((viewsVal / 500) * 1000);
+      if (fixedSalary < 1) fixedSalary = 1;
+      if (fixedSalary > 1000) fixedSalary = 1000;
+      
+      document.getElementById('result-salary').innerText = '₹' + fixedSalary.toLocaleString('en-IN');
+      
+      const totalEstimated = reelPayout + commPayout + fixedSalary;
+      
+      // Render results
+      document.getElementById('result-reels-cash').innerText = '₹' + reelPayout.toLocaleString('en-IN');
+      document.getElementById('result-comm-cash').innerText = '₹' + commPayout.toLocaleString('en-IN');
+      document.getElementById('result-total').innerText = '₹' + totalEstimated.toLocaleString('en-IN');
+    }
+    window.updateCalculation = updateCalculation;
+
+    // Initialize calculator values on load
+    updateCalculation();
+
+    // Bento Card Spotlight Effect
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+
+    // Dynamic Platform Row SVG Icon function
+    function getPlatformIconSVG(platform) {
+      const icons = {
+        instagram: `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
+        youtube: `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+        snapchat: `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2c-3.1 0-5.6 2.3-5.6 5.2 0 .5.1.9.2 1.3-.4-.2-.8-.3-1.3-.3-1.4 0-2.6 1.2-2.6 2.6 0 .5.1.9.3 1.3-.3 0-.6-.1-.9-.1-.9 0-1.7.7-1.7 1.7 0 .5.2.9.5 1.2-.5.5-.9 1.1-.9 1.8 0 1.2.9 2.2 2.2 2.2h.5c.3 1.3 1.2 2.3 2.5 2.7.9.3 2 .4 3.3.4s2.4-.1 3.3-.4c1.3-.4 2.2-1.4 2.5-2.7h.5c1.3 0 2.2-1 2.2-2.2 0-.7-.4-1.3-.9-1.8.3-.3.5-.7.5-1.2 0-1-.8-1.7-1.7-1.7-.3 0-.6.1-.9.1.2-.4.3-.8.3-1.3 0-1.4-1.2-2.6-2.6-2.6-.5 0-.9.1-1.3.3.1-.4.2-.8.2-1.3 0-2.9-2.5-5.2-5.6-5.2z"/></svg>`,
+        twitter: `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
+      };
+      return icons[platform] || '';
+    }
+
+    // Dynamic Platform Row Addition
+    window.addSocialRow = function() {
+      const container = document.getElementById('socialPlatformsContainer');
+      if (!container) return;
+
+      const rowId = 'social_row_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+      const row = document.createElement('div');
+      row.className = 'social-row';
+      row.id = rowId;
+      row.innerHTML = `
+        <div class="platform-select-wrapper">
+          <select onchange="window.updatePlatformIcon(this)" class="platform-select" required>
+            <option value="instagram">Instagram</option>
+            <option value="youtube">YouTube</option>
+            <option value="snapchat">Snapchat</option>
+            <option value="twitter">Twitter / X</option>
+          </select>
+          <div style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-muted); display: flex; align-items: center;">
+            <svg style="width: 12px; height: 12px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+        </div>
+        <div class="platform-handle-wrapper">
+          <span class="platform-prefix-icon"></span>
+          <input type="url" class="platform-handle" placeholder="https://instagram.com/username" onblur="window.validateSocialInput(this)" required>
+        </div>
+        <button type="button" class="remove-platform-btn" onclick="window.removeSocialRow(this)">✕</button>
+      `;
+      container.appendChild(row);
+      
+      // Update prefix icon for the default platform (Instagram)
+      const select = row.querySelector('.platform-select');
+      window.updatePlatformIcon(select);
+
+      // Disable remove button if only one row exists
+      window.updateRemoveButtonsState();
+    };
+
+    window.removeSocialRow = function(btn) {
+      const row = btn.closest('.social-row');
+      if (row) {
+        row.remove();
+        window.updateRemoveButtonsState();
+      }
+    };
+
+    const platformPlaceholders = {
+      instagram: 'https://www.instagram.com/username',
+      youtube: 'https://www.youtube.com/c/channelname',
+      snapchat: 'https://www.snapchat.com/add/username',
+      twitter: 'https://x.com/username'
+    };
+
+    window.updatePlatformIcon = function(selectEl) {
+      const row = selectEl.closest('.social-row');
+      if (row) {
+        const prefix = row.querySelector('.platform-prefix-icon');
+        if (prefix) {
+          prefix.innerHTML = getPlatformIconSVG(selectEl.value);
+        }
+        const input = row.querySelector('.platform-handle');
+        if (input) {
+          input.placeholder = platformPlaceholders[selectEl.value] || 'https://';
+          input.type = 'url';
+        }
+      }
+    };
+
+    window.updateRemoveButtonsState = function() {
+      const container = document.getElementById('socialPlatformsContainer');
+      if (!container) return;
+      const rows = container.querySelectorAll('.social-row');
+      rows.forEach(row => {
+        const btn = row.querySelector('.remove-platform-btn');
+        if (btn) {
+          btn.style.display = rows.length <= 1 ? 'none' : 'flex';
+        }
+      });
+    };
+
+    // Submit Creator application form
+    window.submitApplication = async function() {
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerText;
+
+      // Extract all form details
+      const email = document.getElementById('creatorEmail').value.trim();
+      const name = document.getElementById('creatorName').value.trim();
+      const altEmail = document.getElementById('creatorAltEmail').value.trim();
+      const phone = document.getElementById('creatorPhone').value.trim();
+      const niche = document.getElementById('creatorNiche').value;
+      const followers = document.getElementById('creatorFollowers').value;
+      const portfolio = document.getElementById('creatorPortfolio').value.trim();
+      const acceptTerms = document.getElementById('acceptTermsConsent').checked;
+
+      // Validations before submit
+      // 1. Phone number (exactly 10 digits check)
+      const phoneInput = document.getElementById('creatorPhone');
+      const strippedPhone = phone.replace(/\D/g, '');
+      const isValidPhone = (strippedPhone.length === 10) || (strippedPhone.length === 12 && strippedPhone.startsWith('91'));
+      
+      if (!isValidPhone) {
+        phoneInput.setCustomValidity("Please enter a valid 10-digit mobile number.");
+        phoneInput.reportValidity();
+        return;
+      } else {
+        phoneInput.setCustomValidity("");
+      }
+
+      // 2. Email validations
+      const emailInput = document.getElementById('creatorEmail');
+      const altEmailInput = document.getElementById('creatorAltEmail');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(email.toLowerCase())) {
+        emailInput.setCustomValidity("Please enter a valid verified email address.");
+        emailInput.reportValidity();
+        return;
+      } else {
+        emailInput.setCustomValidity("");
+      }
+      
+      if (altEmail !== "") {
+        if (!emailRegex.test(altEmail.toLowerCase())) {
+          altEmailInput.setCustomValidity("Please enter a valid alternative email address.");
+          altEmailInput.reportValidity();
+          return;
+        } else {
+          altEmailInput.setCustomValidity("");
+        }
+      }
+
+      // 3. Social profiles
+      const socialPlatforms = [];
+      const socialRows = document.querySelectorAll('.social-row');
+      let hasOneFilled = false;
+      let allUrlsValid = true;
+
+      socialRows.forEach(row => {
+        const platform = row.querySelector('.platform-select').value;
+        const handleInput = row.querySelector('.platform-handle');
+        const handle = handleInput.value.trim();
+        if (handle) {
+          hasOneFilled = true;
+          if (!window.formatAndValidatePlatformUrl(platform, handleInput)) {
+            handleInput.reportValidity();
+            allUrlsValid = false;
+          } else {
+            socialPlatforms.push({ platform, handle: handleInput.value.trim() });
+          }
+        }
+      });
+
+      if (!hasOneFilled) {
+        alert("Please add at least one social media platform account.");
+        return;
+      }
+
+      if (!allUrlsValid) {
+        return;
+      }
+
+      if (!acceptTerms) {
+        alert("You must accept the terms and contact permissions to apply.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = "Submitting...";
+
+      const applicantData = {
+        primaryEmail: email.toLowerCase(),
+        name,
+        alternativeEmail: altEmail ? altEmail.toLowerCase() : "",
+        phone,
+        socials: socialPlatforms,
+        niche,
+        followers,
+        portfolio,
+        appliedAt: new Date().toISOString(),
+        source: "creator_alliance_program"
+      };
+
+      try {
+        // Save to Firestore
+        if (addDoc && collection && db) {
+          await addDoc(collection(db, "creator_applications"), applicantData);
+        }
+        
+        btn.innerText = "Applied 🔥";
+        btn.style.background = "var(--neon-green)";
+        btn.style.color = "#000";
+
+        setTimeout(() => {
+          // Close join application modal
+          closeModal();
+          
+          // Open custom success modal popup
+          openSuccessModal();
+          
+          // Reset form fields
+          document.getElementById('creatorName').value = '';
+          document.getElementById('creatorAltEmail').value = '';
+          document.getElementById('creatorPhone').value = '';
+          document.getElementById('creatorNiche').value = '';
+          document.getElementById('creatorFollowers').value = '';
+          document.getElementById('creatorPortfolio').value = '';
+          document.getElementById('acceptTermsConsent').checked = false;
+          
+          const container = document.getElementById('socialPlatformsContainer');
+          if (container) {
+            container.innerHTML = '';
+          }
+          
+          // Reset multi-step wizard back to Step 1
+          window.goToStep(1);
+          
+          btn.disabled = false;
+          btn.innerText = originalText;
+          btn.style.background = "";
+          btn.style.color = "";
+        }, 1000);
+
+      } catch (error) {
+        console.error("Firestore application save error:", error);
+        alert("There was an error saving your application. Please check your network and try again.");
+        btn.disabled = false;
+        btn.innerText = originalText;
+      }
+    };
+
+    // =========================================================================
+    // ATTENTION-SEEKING ANIMATIONS LOGIC
+    // =========================================================================
+
+    // 1. Tagline word cycler animation
+    const words = document.querySelectorAll('.word-cycler-text');
+    const cyclerContainer = document.querySelector('.word-cycler-container');
+    let activeWordIdx = 0;
+
+    function setContainerWidth(wordEl) {
+      if (!cyclerContainer || !wordEl) return;
+      const temp = document.createElement('span');
+      const computed = window.getComputedStyle(wordEl);
+      temp.style.fontFamily = computed.fontFamily;
+      temp.style.fontSize = computed.fontSize;
+      temp.style.fontWeight = computed.fontWeight;
+      temp.style.textTransform = computed.textTransform;
+      temp.style.letterSpacing = computed.letterSpacing;
+      temp.style.visibility = 'hidden';
+      temp.style.position = 'absolute';
+      temp.style.whiteSpace = 'nowrap';
+      temp.style.display = 'inline';
+      temp.innerText = wordEl.innerText;
+      document.body.appendChild(temp);
+      const width = Math.ceil(temp.getBoundingClientRect().width) + 2;
+      document.body.removeChild(temp);
+      cyclerContainer.style.width = width + 'px';
+    }
+
+    if (words.length > 0 && cyclerContainer) {
+      // Set initial width
+      setContainerWidth(words[activeWordIdx]);
+
+      // Set width on load/resize
+      window.addEventListener('load', () => setContainerWidth(words[activeWordIdx]));
+      window.addEventListener('resize', () => setContainerWidth(words[activeWordIdx]));
+
+      setInterval(() => {
+        const current = words[activeWordIdx];
+        current.classList.remove('active');
+        current.classList.add('prev');
+        
+        activeWordIdx = (activeWordIdx + 1) % words.length;
+        const next = words[activeWordIdx];
+        next.classList.remove('prev');
+        next.classList.add('active');
+        
+        // Dynamically adjust underline slot to fit next term
+        setContainerWidth(next);
+        
+        setTimeout(() => {
+          words.forEach((w, idx) => {
+            if (idx !== activeWordIdx) {
+              w.classList.remove('prev');
+            }
+          });
+        }, 500);
+      }, 2800);
+    }
+
+    // 2. High-performance canvas sparks particles system
+    const canvas = document.getElementById('heroSparks');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = canvas.offsetWidth);
+      let height = (canvas.height = canvas.offsetHeight);
+
+      window.addEventListener('resize', () => {
+        width = (canvas.width = canvas.offsetWidth);
+        height = (canvas.height = canvas.offsetHeight);
+      });
+
+      const particles = [];
+      const colors = ['#ccff00', '#00f0ff', '#b026ff'];
+
+      class Spark {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = height + Math.random() * 50;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = -(Math.random() * 0.8 + 0.3);
+          this.size = Math.random() * 2 + 1;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.alpha = Math.random() * 0.5 + 0.3;
+          this.fade = Math.random() * 0.005 + 0.002;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha -= this.fade;
+        }
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = this.color;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      function animateSparks() {
+        ctx.clearRect(0, 0, width, height);
+        if (particles.length < 45 && Math.random() < 0.12) {
+          particles.push(new Spark());
+        }
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.update();
+          if (p.alpha <= 0 || p.y < -10) {
+            particles.splice(i, 1);
+          } else {
+            p.draw();
+          }
+        }
+        requestAnimationFrame(animateSparks);
+      }
+      animateSparks();
+    }
+
+    // 3. Scroll Reveal observer and rolling countdown number ticker
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+          
+          // If the followers card enters, trigger rolling count-down ticker
+          if (entry.target.classList.contains('card-followers')) {
+            const numElem = entry.target.querySelector('.big-number');
+            if (numElem && !numElem.dataset.ticked) {
+              numElem.dataset.ticked = 'true';
+              animateFollowersTicker(numElem);
+            }
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    function animateFollowersTicker(elem) {
+      let start = 10000;
+      const end = 0;
+      const duration = 1500; // ms
+      const startTime = performance.now();
+      
+      function updateTicker(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3); // ease out cubic
+        const current = Math.floor(start - (start * easeProgress));
+        
+        elem.innerText = current.toLocaleString();
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateTicker);
+        } else {
+          elem.innerText = end;
+        }
+      }
+      requestAnimationFrame(updateTicker);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cenin - Frequently Asked Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Clean Premium White & Gold Theme */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8F9FA;
+      --text-main: #000000;
+      --text-muted: #4b5563;
+      --accent: #EAB308;
+      --border-color: #E5E7EB;
+      --card-bg: #FFFFFF;
+      --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; }
+    body { background-color: var(--bg-secondary); color: var(--text-main); line-height: 1.6; }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+    .shop-header {
+      position: sticky; top: 0; z-index: 100; background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex;
+      align-items: center; padding: 1rem 5%; border-bottom: 1px solid var(--border-color); gap: 15px;
+    }
+
+    .back-arrow-btn {
+      color: var(--text-main); display: flex; align-items: center; justify-content: center;
+      background: transparent; border: none; cursor: pointer; padding: 4px; transition: var(--transition-smooth);
+    }
+    .back-arrow-btn:hover { color: var(--accent); }
+    .back-arrow-btn svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .header-title { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; flex-grow: 1; text-align: center; margin-right: 28px; }
+
+    /* =========================================
+       FAQ CONTAINER & LAYOUT
+    ========================================= */
+    .faq-container {
+      max-width: 800px; margin: 2rem auto; padding: 0 1.5rem;
+    }
+
+    .faq-intro {
+      text-align: center; margin-bottom: 2rem;
+    }
+    .faq-intro h2 { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+    .faq-intro p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* =========================================
+       SEARCH BAR
+    ========================================= */
+    .search-wrapper {
+      position: relative; margin-bottom: 2rem; background: var(--bg-primary);
+      border-radius: 12px; border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); display: flex; align-items: center;
+      transition: var(--transition-smooth);
+    }
+    .search-wrapper:focus-within {
+      border-color: var(--text-main);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .search-icon {
+      position: absolute; left: 16px; color: var(--text-muted); display: flex; align-items: center; pointer-events: none;
+    }
+    .search-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+    
+    .faq-search-input {
+      width: 100%; border: none; outline: none; background: transparent;
+      padding: 1rem 1rem 1rem 48px; font-size: 1rem; color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       CATEGORY TABS
+    ========================================= */
+    .tabs-container {
+      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 0.8rem;
+      margin-bottom: 1.5rem; scrollbar-width: none;
+    }
+    .tabs-container::-webkit-scrollbar { display: none; }
+    
+    .category-tab {
+      background-color: var(--bg-primary); border: 1px solid var(--border-color);
+      padding: 0.6rem 1.2rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;
+      color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: var(--transition-smooth);
+    }
+    .category-tab:hover {
+      border-color: var(--text-main); color: var(--text-main);
+    }
+    .category-tab.active {
+      background-color: var(--text-main); border-color: var(--text-main); color: var(--bg-primary);
+    }
+
+    /* =========================================
+       ACCORDION ITEMS
+    ========================================= */
+    .faq-list {
+      display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem;
+    }
+
+    .faq-item {
+      background-color: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 12px; overflow: hidden; transition: var(--transition-smooth);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+    }
+    .faq-item:hover {
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .faq-question {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 1.5rem; background: transparent; border: none; outline: none;
+      cursor: pointer; text-align: left; font-size: 0.95rem; font-weight: 700;
+      color: var(--text-main); gap: 15px;
+    }
+
+    .faq-chevron {
+      color: var(--text-muted); transition: var(--transition-smooth); display: flex; align-items: center;
+    }
+    .faq-chevron svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: var(--transition-smooth);
+      background-color: var(--bg-primary); border-top: 0 solid var(--border-color);
+    }
+    .faq-answer-content {
+      padding: 0 1.5rem 1.2rem 1.5rem; color: var(--text-muted); font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    /* Active Accordion State */
+    .faq-item.active {
+      border-color: var(--text-main);
+    }
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg); color: var(--text-main);
+    }
+    .faq-item.active .faq-answer {
+      max-height: 400px; border-top-width: 1px;
+    }
+
+    /* Empty state */
+    .faq-empty-state {
+      display: none; text-align: center; padding: 3rem 1.5rem; background-color: var(--bg-primary);
+      border-radius: 12px; border: 1px solid var(--border-color); color: var(--text-muted);
+    }
+    .faq-empty-state svg { width: 48px; height: 48px; stroke: currentColor; fill: none; stroke-width: 1.5; margin-bottom: 1rem; opacity: 0.7; }
+    .faq-empty-state h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
+
+    /* =========================================
+       CTA SECTION
+    ========================================= */
+    .faq-cta-card {
+      background-color: var(--text-main); color: var(--bg-primary);
+      border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+      margin-bottom: 3rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative; overflow: hidden;
+    }
+    .faq-cta-card h3 { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+    .faq-cta-card p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 1.5rem; }
+    
+    .btn-support {
+      display: inline-block; background-color: var(--bg-primary); color: var(--text-main);
+      padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem;
+      border: 1px solid transparent; transition: var(--transition-smooth);
+    }
+    .btn-support:hover {
+      background-color: var(--accent); color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .faq-container { margin: 1rem auto; }
+      .faq-intro h2 { font-size: 1.5rem; }
+      .faq-cta-card { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shop Header -->
+  <header class="shop-header">
+    <button class="back-arrow-btn" onclick="window.history.back()" aria-label="Go Back">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <h1 class="header-title">Browse FAQs</h1>
+  </header>
+
+  <main class="faq-container">
+    <div class="faq-intro">
+      <h2>How can we help you?</h2>
+      <p>Search standard topics or browse common questions below.</p>
+    </div>
+
+    <!-- Search Input -->
+    <div class="search-wrapper">
+      <div class="search-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <input type="text" id="faqSearch" class="faq-search-input" placeholder="Type keywords to search (e.g. refund, wallet)..." oninput="filterFAQs()">
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="tabs-container">
+      <button class="category-tab active" data-category="all" onclick="selectCategory(this)">All</button>
+      <button class="category-tab" data-category="shipping" onclick="selectCategory(this)">Orders & Shipping</button>
+      <button class="category-tab" data-category="payments" onclick="selectCategory(this)">Payments & Wallet</button>
+      <button class="category-tab" data-category="refunds" onclick="selectCategory(this)">Returns & Cancellations</button>
+      <button class="category-tab" data-category="account" onclick="selectCategory(this)">Account & Profile</button>
+    </div>
+
+    <!-- FAQ Accordion List -->
+    <div class="faq-list" id="faqList">
+      
+      <!-- SHIPPING FAQs -->
+      <div class="faq-item" data-category="shipping">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>How do I place an order on Cenin?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Placing an order is simple: browse products on the main shop page, select the items you wish to purchase, and add them to your cart. Once finished, open the cart, verify your items, input your shipping address details, and complete the payment using UPI.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="shipping">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>How can I track my active order status?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            You can monitor your order status in real time. Navigate to the **Profile** page and click **My Orders**. You will see a live 4-step progress tracker: **Placed** ➔ **Approved/Rejected** ➔ **Out for Delivery** ➔ **Delivered**.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="shipping">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>Are there any shipping charges?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            No! Cenin provides complimentary standard delivery on all catalog products shipped nationwide across India, with no minimum order values required.
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENTS FAQs -->
+      <div class="faq-item" data-category="payments">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>What payment options do you support?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            We primarily support secure digital UPI payments. At checkout, after validating your shipping address, a personalized dynamic UPI payment QR code is generated. You can scan it using any major UPI app (BHIM, Google Pay, PhonePe, Paytm) to complete your transaction instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="payments">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>What is the Cenin Wallet?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            The Cenin Wallet stores your promotional credits and order refund cashbacks. Any time you cancel an eligible order, the refund value is credited back instantly to your Cenin Wallet balance. You can apply this balance at checkout to get discounts or pay for orders completely.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="payments">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>Can I withdraw my Cenin Wallet balance to a bank account?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            No, wallet balances are store credits and are non-transferable. They cannot be withdrawn to bank accounts, card accounts, or third-party UPI addresses. They are only applicable for purchases on Cenin.
+          </div>
+        </div>
+      </div>
+
+      <!-- REFUNDS FAQs -->
+      <div class="faq-item" data-category="refunds">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>How do I cancel my order?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Active orders can be cancelled prior to dispatch. Open your **Profile** page, select the **Cancel Order** option from the menu, pick the order ID from your list, choose a cancellation reason, and click **Confirm Cancellation**. Double cancellations on the same order are strictly prevented.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="refunds">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>How long does it take to process my refund?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Cenin supports instant refunds. Once your cancellation request is verified, 100% of the purchase amount is credited directly back to your Cenin Wallet immediately.
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT FAQs -->
+      <div class="faq-item" data-category="account">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>Why do I need to sign in with Google?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Google authentication ensures secure access to your personal details. It guards your active orders history, protects your Cenin Wallet balance against unauthorized access, and secures your saved shipping addresses.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="account">
+        <button class="faq-question" onclick="toggleAccordion(this)">
+          <span>How do I manage my saved shipping addresses?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Under your **Profile** page, navigate to **Saved Addresses**. Here, you will see your default address card and any additional addresses. You can click **Edit** or **Delete** on any card. A custom confirmation modal dialog will prompt you to confirm changes to prevent accidental deletions.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty state element if search yields no results -->
+    <div class="faq-empty-state" id="faqEmptyState">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="12"></line><line x1="11" y1="16" x2="11.01" y2="16"></line></svg>
+      <h3>No results found</h3>
+      <p>We couldn't find any FAQs matching your search query. Try typing something else or check your spelling.</p>
+    </div>
+
+    <!-- Bottom CTA Banner -->
+    <section class="faq-cta-card">
+      <h3>Still need help?</h3>
+      <p>Can't find the answers you're looking for? Reach out to our customer care team and file a ticket.</p>
+      <a href="profile.html?view=support" class="btn-support">Contact Support</a>
+    </section>
+  </main>
+
+  <script>
+    // Accordion Toggle
+    function toggleAccordion(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all accordions first for a clean behavior
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Toggle current accordion
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // Category Filter tabs
+    let currentCategory = 'all';
+
+    function selectCategory(tabElement) {
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      tabElement.classList.add('active');
+      currentCategory = tabElement.getAttribute('data-category');
+      
+      filterFAQs();
+    }
+
+    // Live search and tab filter combined
+    function filterFAQs() {
+      const searchQuery = document.getElementById('faqSearch').value.toLowerCase().trim();
+      const faqItems = document.querySelectorAll('.faq-item');
+      let visibleCount = 0;
+
+      faqItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        const questionText = item.querySelector('.faq-question span').innerText.toLowerCase();
+        const answerText = item.querySelector('.faq-answer-content').innerText.toLowerCase();
+
+        const matchesCategory = (currentCategory === 'all' || itemCategory === currentCategory);
+        const matchesSearch = (!searchQuery || questionText.includes(searchQuery) || answerText.includes(searchQuery));
+
+        if (matchesCategory && matchesSearch) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('active'); // Close it if hidden
+        }
+      });
+
+      // Toggle Empty State display
+      const emptyState = document.getElementById('faqEmptyState');
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

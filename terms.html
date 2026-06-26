@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cenin - Terms of Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Clean White Theme Variables */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8F9FA;
+      --text-main: #000000;
+      --text-muted: #4b5563;
+      --accent: #EAB308;
+      --border-color: #E5E7EB;
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; }
+    body { background-color: var(--bg-secondary); color: var(--text-main); line-height: 1.6; }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+    .shop-header {
+      position: sticky; top: 0; z-index: 100; background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex;
+      align-items: center; padding: 1rem 5%; border-bottom: 1px solid var(--border-color); gap: 15px;
+    }
+
+    .back-arrow-btn {
+      color: var(--text-main); display: flex; align-items: center; justify-content: center;
+      background: transparent; border: none; cursor: pointer; padding: 4px; transition: var(--transition-smooth);
+    }
+    .back-arrow-btn:hover { color: var(--accent); }
+    .back-arrow-btn svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .header-title { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; flex-grow: 1; text-align: center; margin-right: 28px; }
+
+    /* =========================================
+       TERMS CONTENT STYLES
+    ========================================= */
+    .terms-container {
+      max-width: 800px; margin: 2rem auto; padding: 3rem 2.5rem;
+      background-color: var(--bg-primary); border-radius: 16px;
+      border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .last-updated {
+      font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem;
+      display: block; text-align: center;
+    }
+
+    .terms-section { margin-bottom: 2.5rem; }
+    
+    .terms-section h2 {
+      font-size: 1.3rem; font-weight: 800; color: var(--text-main);
+      margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .terms-section p { margin-bottom: 1rem; color: var(--text-muted); font-size: 0.95rem; }
+    
+    .terms-section ul { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
+    .terms-section li { margin-bottom: 0.5rem; }
+
+    .highlight-box {
+      background-color: rgba(234, 179, 8, 0.1); border-left: 4px solid var(--accent);
+      padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;
+    }
+    .highlight-box p { color: var(--text-main); font-weight: 600; margin: 0; }
+
+    .btn-contact {
+      display: inline-block; background-color: var(--text-main); color: var(--bg-primary);
+      padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; margin-top: 1rem;
+      transition: var(--transition-smooth);
+    }
+    .btn-contact:hover { background-color: var(--accent); color: var(--text-main); }
+
+    @media (max-width: 768px) {
+      .terms-container { margin: 1rem; padding: 2rem 1.5rem; }
+      .terms-section h2 { font-size: 1.15rem; }
+      .terms-section p, .terms-section ul { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="shop-header">
+    <button class="back-arrow-btn" onclick="window.history.back()" aria-label="Go Back">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <h1 class="header-title">Terms of Service</h1>
+  </header>
+
+  <main class="terms-container">
+    <span class="last-updated">Last Updated: January 2024</span>
+
+    <div class="terms-section">
+      <h2>1. Agreement to Terms</h2>
+      <p>By accessing or using the Cenin platform ("Site", "Platform", or "Service"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must immediately discontinue your use of our services. These terms govern your access to the site, product purchases, and participation in any promotional programs.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>2. Platform Role & Product Disclaimers</h2>
+      <p>Cenin operates strictly as a marketplace and curation platform. We partner with independent third-party suppliers to fulfill orders and do not manufacture the items listed on our storefront.</p>
+      <ul>
+        <li><strong>Material Disclaimer:</strong> We do not sell real, authentic gold, silver, or diamond-coated jewelry. Words like "gold", "silver", or "diamond" used in product titles or descriptions refer strictly to the color, finish, or aesthetic style of the item.</li>
+        <li><strong>Supplier Dependency:</strong> The exact composition, durability, and finishing materials of all products depend entirely on the third-party supplier.</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <p>Strict Wallet Refund Policy: We do not process refunds to original bank accounts, UPI IDs, or credit cards under any circumstances. All approved refunds, cancellations, and adjustments are credited exclusively to your Cenin Wallet.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>3. Order Cancellations</h2>
+      <p>Once an order is successfully placed and payment is verified, it is immediately routed for fulfillment. We offer a strict, limited window for cancellations:</p>
+      <ul>
+        <li>You may request to cancel an order within <strong>24 hours</strong> of placement.</li>
+        <li>Requests made after 24 hours will be automatically rejected.</li>
+        <li>If your cancellation is approved within the timeframe, 100% of the paid amount will be credited to your Cenin Wallet.</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2>4. Returns & Defect Claims</h2>
+      <p>Because we offer products at highly reduced retail margins, <strong>all sales are considered final</strong>. We do not accept returns for buyer's remorse, sizing issues, or change of mind. Exceptions are strictly limited to severe defects or receiving the wrong item.</p>
+      <p>To claim a defect resolution, the following stringent criteria apply:</p>
+      <ul>
+        <li>You must submit a clear, continuous, uncut, and unedited unboxing video. The video must clearly display the original shipping label before the package is opened, followed by the defect.</li>
+        <li>Without valid video proof, your claim will be automatically rejected.</li>
+        <li>If our team validates your proof, we will issue a <strong>60% refund</strong> of the product's value directly to your Cenin Wallet.</li>
+        <li>To minimize hassle, we do not require you to ship the defective physical product back to us in these approved scenarios.</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2>5. Influencer Discounts & Cenin Wallet</h2>
+      <p>Promotional codes, discounts, or referral links provided by social media influencers or our Creator Crew hold zero cash value. In the event a refund is calculated, any discounted amounts applied via these codes will be excluded from your refund total.</p>
+      <p>Funds stored in the Cenin Wallet can only be used for future purchases on the Cenin platform and cannot be withdrawn or transferred to external accounts.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>6. Marketing & EliteX Agency</h2>
+      <p>The Cenin Creator Crew, brand ambassadorships, and public marketing initiatives are managed entirely by <strong>EliteX</strong>, our official marketing agency partner. EliteX is authorized to communicate with influencers, secure brand deals, and distribute equity pools in accordance with creator agreements. Inquiries regarding creator collaborations should be directed through authorized EliteX channels.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>7. Limitation of Liability</h2>
+      <p>Cenin, its partners, and EliteX shall not be held liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services, or from the quality, wear, or allergic reactions caused by products supplied by third-party vendors.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>8. Contact Us</h2>
+      <p>If you have questions regarding these Terms of Service, order cancellations, or defect claims, please contact our support team.</p>
+      <a href="mailto:support@cenin.com" class="btn-contact">Contact Support</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
